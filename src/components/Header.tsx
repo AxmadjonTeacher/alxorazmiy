@@ -1,11 +1,18 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState('EN');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,20 +31,38 @@ export const Header = () => {
     { name: 'Contact', href: '#contact' }
   ];
 
+  const languages = [
+    { code: 'EN', name: 'English', flag: '🇺🇸' },
+    { code: 'UZ', name: 'O\'zbekcha', flag: '🇺🇿' },
+    { code: 'RU', name: 'Русский', flag: '🇷🇺' }
+  ];
+
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">AX</span>
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 flex items-center justify-center">
+              <img 
+                src="/lovable-uploads/ff9eb7ca-e3e6-47ed-bb86-bed42fe06a21.png" 
+                alt="Al-Xorazmiy School Logo" 
+                className="w-10 h-10 object-contain"
+              />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Al-Xorazmiy</h1>
-              <p className="text-xs text-gray-600">University</p>
+              <h1 className={`text-xl lg:text-2xl font-bold transition-colors duration-300 ${
+                isScrolled ? 'text-gray-900' : 'text-white'
+              }`}>
+                Al-Xorazmiy
+              </h1>
+              <p className={`text-sm transition-colors duration-300 ${
+                isScrolled ? 'text-gray-600' : 'text-white/80'
+              }`}>
+                School
+              </p>
             </div>
           </div>
 
@@ -47,17 +72,52 @@ export const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium relative group"
+                className={`font-medium relative group transition-colors duration-300 ${
+                  isScrolled 
+                    ? 'text-gray-700 hover:text-blue-600' 
+                    : 'text-white/90 hover:text-white'
+                }`}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* Language Selector and CTA */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className={`flex items-center space-x-2 transition-colors duration-300 ${
+                    isScrolled 
+                      ? 'text-gray-700 hover:text-blue-600 hover:bg-blue-50' 
+                      : 'text-white/90 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  <Globe className="w-4 h-4" />
+                  <span className="text-sm font-medium">{selectedLanguage}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48 bg-white border border-gray-200 shadow-lg">
+                {languages.map((lang) => (
+                  <DropdownMenuItem 
+                    key={lang.code}
+                    onClick={() => setSelectedLanguage(lang.code)}
+                    className="flex items-center space-x-3 px-3 py-2 hover:bg-blue-50 cursor-pointer"
+                  >
+                    <span className="text-lg">{lang.flag}</span>
+                    <span className="font-medium">{lang.name}</span>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <Button 
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
+            >
               Apply Now
             </Button>
           </div>
@@ -65,7 +125,11 @@ export const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
+            className={`lg:hidden p-2 rounded-md transition-colors duration-300 ${
+              isScrolled 
+                ? 'text-gray-700 hover:text-blue-600 hover:bg-gray-100' 
+                : 'text-white hover:text-white/80 hover:bg-white/10'
+            }`}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -73,20 +137,41 @@ export const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t animate-fade-in">
-            <nav className="px-4 py-4 space-y-2">
+          <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 animate-fade-in">
+            <nav className="px-4 py-6 space-y-1">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                  className="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
-              <div className="pt-4 border-t">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+              
+              {/* Mobile Language Selector */}
+              <div className="pt-4 border-t border-gray-100">
+                <div className="px-4 py-2 text-sm font-medium text-gray-500 uppercase tracking-wide">
+                  Language
+                </div>
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      setSelectedLanguage(lang.code);
+                      setIsMenuOpen(false);
+                    }}
+                    className="flex items-center space-x-3 w-full py-2 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                  >
+                    <span className="text-lg">{lang.flag}</span>
+                    <span className="font-medium">{lang.name}</span>
+                  </button>
+                ))}
+              </div>
+              
+              <div className="pt-4 border-t border-gray-100">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium">
                   Apply Now
                 </Button>
               </div>

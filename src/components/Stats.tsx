@@ -47,7 +47,7 @@ const StatItem = ({ icon: Icon, value, label, suffix = '' }) => {
         </div>
       </div>
       <div className="text-4xl font-bold text-gray-900 mb-2">
-        {count.toLocaleString()}{suffix}
+        {typeof value === 'string' ? value : count.toLocaleString()}{suffix}
       </div>
       <div className="text-gray-600 font-medium">{label}</div>
     </div>
@@ -56,10 +56,10 @@ const StatItem = ({ icon: Icon, value, label, suffix = '' }) => {
 
 export const Stats = () => {
   const stats = [
-    { icon: Users, value: 15000, label: 'Active Students', suffix: '+' },
-    { icon: BookOpen, value: 150, label: 'Academic Programs', suffix: '+' },
-    { icon: Trophy, value: 50, label: 'Awards & Recognition', suffix: '+' },
-    { icon: TrendingUp, value: 95, label: 'Employment Rate', suffix: '%' }
+    { icon: BookOpen, value: 25, label: 'Academic Programs', suffix: '+' },
+    { icon: Users, value: 'Expert', label: 'Teaching Staff', suffix: '' },
+    { icon: Trophy, value: 'Modern', label: 'Facilities', suffix: '' },
+    { icon: TrendingUp, value: 'Innovative', label: 'Approach', suffix: '' }
   ];
 
   return (
@@ -67,10 +67,10 @@ export const Stats = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Excellence in Numbers
+            Excellence in Education
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Our commitment to academic excellence is reflected in our achievements and the success of our students.
+            Our commitment to providing high-quality education with modern teaching methods and innovative approaches.
           </p>
         </div>
 

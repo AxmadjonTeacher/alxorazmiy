@@ -25,7 +25,7 @@ export const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium mb-8 animate-fade-in">
             <Award className="w-4 h-4 mr-2" />
-            Excellence in Education Since 1991
+            Excellence in Education - Newly Established
           </div>
 
           {/* Main Heading */}
@@ -38,7 +38,7 @@ export const Hero = () => {
 
           {/* Subtitle */}
           <p className="text-xl sm:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '400ms' }}>
-            Al-Xorazmiy University - Where innovation meets tradition, fostering excellence in higher education and research.
+            Al-Xorazmiy School - Where innovation meets tradition, fostering excellence in modern education and personal development.
           </p>
 
           {/* CTA Buttons */}
@@ -53,28 +53,21 @@ export const Hero = () => {
             </Button>
           </div>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '800ms' }}>
+          {/* Quick Stats - Updated for a new school */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-xl mx-auto animate-fade-in" style={{ animationDelay: '800ms' }}>
             <div className="text-center">
               <div className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mx-auto mb-3">
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
-              <div className="text-2xl font-bold text-white">50+</div>
+              <div className="text-2xl font-bold text-white">25+</div>
               <div className="text-white/70">Programs</div>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mx-auto mb-3">
-                <Users className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-2xl font-bold text-white">15,000+</div>
-              <div className="text-white/70">Students</div>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mx-auto mb-3">
                 <Award className="w-6 h-6 text-white" />
               </div>
-              <div className="text-2xl font-bold text-white">Top 100</div>
-              <div className="text-white/70">Globally</div>
+              <div className="text-2xl font-bold text-white">Modern</div>
+              <div className="text-white/70">Approach</div>
             </div>
           </div>
         </div>
