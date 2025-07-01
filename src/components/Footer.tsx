@@ -1,24 +1,24 @@
 
 import React from 'react';
-import { MapPin, Phone, Mail, Globe, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 export const Footer = () => {
   const quickLinks = [
     { name: 'About Us', href: '#about' },
     { name: 'Programs', href: '#programs' },
     { name: 'Admissions', href: '#admissions' },
-    { name: 'Research', href: '#research' },
-    { name: 'Campus Life', href: '#campus' },
-    { name: 'Alumni', href: '#alumni' }
+    { name: 'Contact', href: '#contact' }
   ];
 
   const programs = [
-    { name: 'Computer Science', href: '#' },
-    { name: 'Business Administration', href: '#' },
-    { name: 'Engineering', href: '#' },
-    { name: 'International Relations', href: '#' },
-    { name: 'Medicine', href: '#' },
-    { name: 'Law', href: '#' }
+    { name: 'English', href: '#' },
+    { name: 'Mathematics', href: '#' },
+    { name: 'Information Technology', href: '#' },
+    { name: 'Russian', href: '#' },
+    { name: 'Robotics', href: '#' },
+    { name: 'IELTS Preparation', href: '#' },
+    { name: 'SAT Preparation', href: '#' },
+    { name: 'Arabic', href: '#' }
   ];
 
   const socialLinks = [
@@ -29,29 +29,31 @@ export const Footer = () => {
   ];
 
   return (
-    <footer id="contact" className="bg-gray-900 text-white">
+    <footer id="footer" className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* University Info */}
+          {/* School Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">AX</span>
-              </div>
+              <img 
+                src="/lovable-uploads/ff9eb7ca-e3e6-47ed-bb86-bed42fe06a21.png" 
+                alt="Al-Xorazmiy School Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <div>
                 <h3 className="text-xl font-bold">Al-Xorazmiy</h3>
-                <p className="text-sm text-gray-400">University</p>
+                <p className="text-sm text-gray-400">School</p>
               </div>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              Empowering students to achieve excellence through innovative education, research, and global partnerships.
+              Empowering students to achieve excellence through innovative education and hands-on learning experiences.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors duration-300"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-teal-600 transition-colors duration-300"
                   aria-label={social.name}
                 >
                   <social.icon className="w-5 h-5" />
@@ -70,7 +72,7 @@ export const Footer = () => {
                     href={link.href}
                     className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center group"
                   >
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="w-2 h-2 bg-teal-600 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     {link.name}
                   </a>
                 </li>
@@ -80,15 +82,15 @@ export const Footer = () => {
 
           {/* Programs */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Popular Programs</h3>
+            <h3 className="text-lg font-semibold mb-6">Our Programs</h3>
             <ul className="space-y-3">
-              {programs.map((program, index) => (
+              {programs.slice(0, 6).map((program, index) => (
                 <li key={index}>
                   <a
                     href={program.href}
                     className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center group"
                   >
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="w-2 h-2 bg-teal-600 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     {program.name}
                   </a>
                 </li>
@@ -101,26 +103,26 @@ export const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Contact Info</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-teal-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">
-                    123 University Avenue<br />
-                    Tashkent, Uzbekistan<br />
-                    100000
+                    Namangan shahar, Namangan ko'chasi,<br />
+                    17A Uy<br />
+                    Uzbekistan
                   </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <p className="text-gray-300">+998 71 123 4567</p>
+                <Phone className="w-5 h-5 text-teal-400 flex-shrink-0" />
+                <p className="text-gray-300">+998 94 303 07 07</p>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <p className="text-gray-300">info@al-xorazmiy.uz</p>
+                <Mail className="w-5 h-5 text-teal-400 flex-shrink-0" />
+                <p className="text-gray-300">alkhorazmiynamangan@gmail.com</p>
               </div>
               <div className="flex items-center space-x-3">
-                <Globe className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <p className="text-gray-300">www.al-xorazmiy.uz</p>
+                <Clock className="w-5 h-5 text-teal-400 flex-shrink-0" />
+                <p className="text-gray-300">08:30 - 17:00</p>
               </div>
             </div>
           </div>
@@ -130,7 +132,7 @@ export const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Al-Xorazmiy University. All rights reserved.
+              © 2024 Al-Xorazmiy School. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
