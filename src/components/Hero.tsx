@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { ChevronRight, Play, BookOpen, Users, Award } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const Hero = () => {
@@ -9,6 +9,13 @@ export const Hero = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const handleContactClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -27,7 +34,9 @@ export const Hero = () => {
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium mb-8 animate-fade-in">
-            <Award className="w-4 h-4 mr-2" />
+            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
+            </svg>
             Excellence in Education - Newly Established
           </div>
 
@@ -44,30 +53,34 @@ export const Hero = () => {
             Al-Xorazmiy School - Where innovation meets tradition, fostering excellence in modern education and personal development.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in" style={{ animationDelay: '600ms' }}>
-            <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold group transition-all duration-300 hover:scale-105">
-              Explore Programs
-              <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg font-semibold group transition-all duration-300 hover:scale-105">
-              <Play className="mr-2 w-5 h-5" />
-              Watch Video
+          {/* Contact Us Button */}
+          <div className="flex justify-center mb-12 animate-fade-in" style={{ animationDelay: '600ms' }}>
+            <Button 
+              size="lg" 
+              onClick={handleContactClick}
+              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold group transition-all duration-300 hover:scale-105"
+            >
+              <Phone className="mr-2 w-5 h-5" />
+              Contact Us
             </Button>
           </div>
 
-          {/* Quick Stats - Updated for newly opened school */}
+          {/* Quick Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-xl mx-auto animate-fade-in" style={{ animationDelay: '800ms' }}>
             <div className="text-center">
               <div className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mx-auto mb-3">
-                <BookOpen className="w-6 h-6 text-white" />
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
               </div>
-              <div className="text-2xl font-bold text-white">8+</div>
+              <div className="text-2xl font-bold text-white">Diverse</div>
               <div className="text-white/70">Subjects</div>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mx-auto mb-3">
-                <Award className="w-6 h-6 text-white" />
+                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
+                </svg>
               </div>
               <div className="text-2xl font-bold text-white">Modern</div>
               <div className="text-white/70">Approach</div>

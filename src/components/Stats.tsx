@@ -56,14 +56,14 @@ const StatItem = ({ icon: Icon, value, label, suffix = '' }) => {
 
 export const Stats = () => {
   const stats = [
-    { icon: BookOpen, value: 8, label: 'Academic Subjects', suffix: '+' },
+    { icon: BookOpen, value: 'Diverse', label: 'Academic Subjects', suffix: '' },
     { icon: Users, value: 'Expert', label: 'Teaching Staff', suffix: '' },
     { icon: Trophy, value: 'Modern', label: 'Facilities', suffix: '' },
     { icon: TrendingUp, value: 'Innovative', label: 'Approach', suffix: '' }
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-br from-white to-teal-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">

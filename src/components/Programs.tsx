@@ -1,146 +1,94 @@
 
 import React from 'react';
-import { ChevronRight, Clock, Users, Award, BookOpen, Calculator, Globe, Bot, FileText, Languages } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
-const ProgramCard = ({ program, index }) => {
-  return (
-    <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-white border-0 shadow-lg overflow-hidden animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
-      <div className="h-2 bg-gradient-to-r from-[#06b6d4] to-[#10b981] group-hover:from-[#3b4cca] group-hover:to-[#06b6d4] transition-all duration-500"></div>
-      
-      <CardHeader className="pb-4">
-        <div className="flex items-center justify-between mb-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-teal-100 to-blue-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <program.icon className="w-6 h-6 text-teal-600" />
-          </div>
-          <span className="text-sm font-medium text-teal-600 bg-teal-50 px-3 py-1 rounded-full">
-            {program.level}
-          </span>
-        </div>
-        <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors duration-300">
-          {program.title}
-        </CardTitle>
-      </CardHeader>
-
-      <CardContent className="space-y-4">
-        <p className="text-gray-600 leading-relaxed">
-          {program.description}
-        </p>
-
-        <div className="flex items-center justify-between text-sm text-gray-500">
-          <div className="flex items-center">
-            <Clock className="w-4 h-4 mr-1" />
-            {program.duration}
-          </div>
-          <div className="flex items-center">
-            <Users className="w-4 h-4 mr-1" />
-            {program.level}
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between pt-4">
-          <div className="flex items-center">
-            <Award className="w-4 h-4 text-yellow-500 mr-1" />
-            <span className="text-sm font-medium text-gray-700">Certified</span>
-          </div>
-          <Button variant="ghost" className="text-teal-600 hover:text-white hover:bg-teal-600 group p-2">
-            Learn More
-            <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
-      </CardContent>
-    </Card>
-  );
-};
+import { BookOpen, Calculator, Monitor, Globe, Bot, Award, PenTool, Languages } from 'lucide-react';
 
 export const Programs = () => {
   const programs = [
     {
       icon: Languages,
-      title: 'English Language',
-      level: 'All Levels',
-      description: 'Comprehensive English language program focusing on speaking, writing, reading, and listening skills.',
-      duration: 'Year-round'
+      title: 'English',
+      description: 'Comprehensive English language learning with focus on speaking, writing, and communication skills.',
+      features: ['Speaking Practice', 'Grammar & Writing', 'Literature Study']
     },
     {
       icon: Calculator,
       title: 'Mathematics',
-      level: 'Core Subject',
-      description: 'Advanced mathematics curriculum covering algebra, geometry, calculus, and applied mathematics.',
-      duration: 'Year-round'
+      description: 'Advanced mathematical concepts and problem-solving techniques for academic excellence.',
+      features: ['Algebra & Geometry', 'Calculus', 'Problem Solving']
     },
     {
-      icon: BookOpen,
+      icon: Monitor,
       title: 'Information Technology',
-      level: 'Modern Tech',
-      description: 'Cutting-edge IT education including programming, digital literacy, and computer science fundamentals.',
-      duration: 'Year-round'
+      description: 'Modern IT skills including programming, digital literacy, and computer science fundamentals.',
+      features: ['Programming', 'Digital Skills', 'Computer Science']
     },
     {
       icon: Globe,
-      title: 'Russian Language',
-      level: 'Language',
-      description: 'Russian language instruction for communication, literature, and cultural understanding.',
-      duration: 'Year-round'
+      title: 'Russian',
+      description: 'Russian language proficiency with emphasis on practical communication and cultural understanding.',
+      features: ['Language Skills', 'Cultural Studies', 'Communication']
     },
     {
       icon: Bot,
       title: 'Robotics',
-      level: 'STEM',
-      description: 'Hands-on robotics and engineering program fostering creativity and technical problem-solving.',
-      duration: 'Year-round'
+      description: 'Hands-on robotics and engineering projects to develop technical and creative thinking.',
+      features: ['Robot Building', 'Programming', 'Engineering Design']
     },
     {
-      icon: FileText,
+      icon: Award,
       title: 'IELTS Preparation',
-      level: 'Test Prep',
-      description: 'Specialized IELTS preparation course for international English language proficiency certification.',
-      duration: 'Intensive'
+      description: 'Intensive IELTS preparation course for international education opportunities.',
+      features: ['Test Strategies', 'Practice Tests', 'Score Improvement']
     },
     {
-      icon: FileText,
+      icon: PenTool,
       title: 'SAT Preparation',
-      level: 'Test Prep',
-      description: 'Comprehensive SAT preparation program for university admission success.',
-      duration: 'Intensive'
+      description: 'Comprehensive SAT preparation for university admission success.',
+      features: ['Test Prep', 'Practice Exams', 'Score Enhancement']
     },
     {
-      icon: Languages,
-      title: 'Arabic Language',
-      level: 'Language',
-      description: 'Arabic language and culture studies for linguistic diversity and cultural awareness.',
-      duration: 'Year-round'
+      icon: BookOpen,
+      title: 'Arabic',
+      description: 'Arabic language studies with focus on reading, writing, and cultural appreciation.',
+      features: ['Language Basics', 'Reading & Writing', 'Cultural Context']
     }
   ];
 
   return (
-    <section id="programs" className="py-20 bg-gradient-to-br from-gray-50 to-teal-50">
+    <section id="programs" className="py-20 bg-gradient-to-br from-teal-50 to-blue-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-teal-100 text-teal-800 text-sm font-medium mb-4">
-            <BookOpen className="w-4 h-4 mr-2" />
-            Academic Excellence
-          </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Our Subjects
+            Our Academic Programs
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover our comprehensive curriculum designed to prepare students for success in the modern world.
+            Discover our comprehensive range of subjects designed to prepare students for success in their academic and professional journeys.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {programs.map((program, index) => (
-            <ProgramCard key={index} program={program} index={index} />
+            <div
+              key={index}
+              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 group"
+            >
+              <div className="flex items-center justify-center w-14 h-14 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                <program.icon className="w-7 h-7 text-white" />
+              </div>
+              
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{program.title}</h3>
+              <p className="text-gray-600 mb-4 text-sm leading-relaxed">{program.description}</p>
+              
+              <ul className="space-y-2">
+                {program.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-center text-sm text-gray-600">
+                    <div className="w-1.5 h-1.5 bg-teal-500 rounded-full mr-2"></div>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Button size="lg" className="bg-teal-600 hover:bg-teal-700 px-8 py-4 text-lg font-semibold group">
-            View All Subjects
-            <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
         </div>
       </div>
     </section>
