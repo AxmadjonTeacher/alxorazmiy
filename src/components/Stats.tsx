@@ -42,7 +42,7 @@ const StatItem = ({ icon: Icon, value, label, suffix = '' }) => {
   return (
     <div ref={elementRef} className="text-center group">
       <div className="flex justify-center mb-4">
-        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+        <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
           <Icon className="w-8 h-8 text-white" />
         </div>
       </div>
@@ -56,7 +56,7 @@ const StatItem = ({ icon: Icon, value, label, suffix = '' }) => {
 
 export const Stats = () => {
   const stats = [
-    { icon: BookOpen, value: 25, label: 'Academic Programs', suffix: '+' },
+    { icon: BookOpen, value: 8, label: 'Academic Subjects', suffix: '+' },
     { icon: Users, value: 'Expert', label: 'Teaching Staff', suffix: '' },
     { icon: Trophy, value: 'Modern', label: 'Facilities', suffix: '' },
     { icon: TrendingUp, value: 'Innovative', label: 'Approach', suffix: '' }

@@ -42,23 +42,23 @@ export const Header = () => {
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 flex items-center justify-center">
+          <div className="flex items-center space-x-6">
+            <div className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center">
               <img 
                 src="/lovable-uploads/ff9eb7ca-e3e6-47ed-bb86-bed42fe06a21.png" 
                 alt="Al-Xorazmiy School Logo" 
-                className="w-10 h-10 object-contain"
+                className="w-full h-full object-contain"
               />
             </div>
             <div>
-              <h1 className={`text-xl lg:text-2xl font-bold transition-colors duration-300 ${
+              <h1 className={`text-2xl lg:text-3xl font-bold transition-colors duration-300 ${
                 isScrolled ? 'text-gray-900' : 'text-white'
               }`}>
                 Al-Xorazmiy
               </h1>
-              <p className={`text-sm transition-colors duration-300 ${
+              <p className={`text-base lg:text-lg transition-colors duration-300 ${
                 isScrolled ? 'text-gray-600' : 'text-white/80'
               }`}>
                 School
