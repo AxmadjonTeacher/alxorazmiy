@@ -1,9 +1,86 @@
-import React from 'react';
-import { Calendar, Clock, ChevronRight, Trophy, Plane, Users } from 'lucide-react';
+
+import React, { useState } from 'react';
+import { Calendar, Clock, ChevronRight, Trophy, Plane, Users, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
-const NewsCard = ({ article, index }) => {
+const NewsModal = ({ article, isOpen, onClose }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+      <div className="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+        <div className="sticky top-0 bg-white border-b p-4 flex justify-between items-center">
+          <h2 className="text-2xl font-bold text-gray-900">{article.title}</h2>
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+          >
+            <X className="w-6 h-6" />
+          </button>
+        </div>
+        
+        <div className="p-6">
+          <div className="aspect-video mb-6 rounded-lg overflow-hidden">
+            <img 
+              src={article.image} 
+              alt={article.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
+          <div className="prose max-w-none">
+            <div className="mb-4">
+              <span className="inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">
+                {article.category}
+              </span>
+            </div>
+            
+            <div className="text-gray-700 space-y-4">
+              {article.detailedContent.split('\n').map((paragraph, index) => (
+                <p key={index} className="leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            
+            {article.gallery && article.gallery.length > 0 && (
+              <div className="mt-8">
+                <h3 className="text-xl font-semibold mb-4">Event Gallery</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {article.gallery.map((image, index) => (
+                    <div key={index} className="aspect-square rounded-lg overflow-hidden">
+                      <img 
+                        src={image} 
+                        alt={`Gallery ${index + 1}`}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            <div className="mt-6 p-4 bg-teal-50 rounded-lg">
+              <p className="text-teal-800 font-medium">
+                AL-XORAZMIY - Zamonaviy ta'lim va cheksiz imkoniyatlar!
+              </p>
+              {article.contact && (
+                <div className="mt-2 text-teal-700">
+                  {article.contact.map((phone, index) => (
+                    <p key={index}>📞 {phone}</p>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const NewsCard = ({ article, index, onReadMore }) => {
   return (
     <Card className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-white border-0 shadow-lg overflow-hidden animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
       <div className="aspect-w-16 aspect-h-9 relative overflow-hidden h-48">
@@ -38,7 +115,11 @@ const NewsCard = ({ article, index }) => {
             </div>
             <span className="text-sm text-gray-700 font-medium">{article.author}</span>
           </div>
-          <Button variant="ghost" className="text-teal-600 hover:text-white hover:bg-teal-600 group p-2">
+          <Button 
+            variant="ghost" 
+            className="text-teal-600 hover:text-white hover:bg-teal-600 group p-2"
+            onClick={() => onReadMore(article)}
+          >
             Read More
             <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
           </Button>
@@ -49,59 +130,117 @@ const NewsCard = ({ article, index }) => {
 };
 
 export const News = () => {
+  const [selectedArticle, setSelectedArticle] = useState(null);
+
   const articles = [
     {
       category: 'International Competition',
       title: 'Al-Xorazmiy Students Compete in Dubai Olympics',
       excerpt: 'Al-Xorazmiy international school students traveled to Dubai to participate in the Olympics organized by "THE WORLD MEMA ASSOCIATION" Dubai-2025.',
       author: 'Al-Xorazmiy Staff',
-      image: '/lovable-uploads/b3cb1f3c-e2a9-4358-9c12-a3457f8e05d8.png'
+      image: '/lovable-uploads/b3cb1f3c-e2a9-4358-9c12-a3457f8e05d8.png',
+      detailedContent: `AL-XORAZMIY xalqaro maktabi o'quvchilari 25-mart kuni bo'lib o'tadigan "DUBAI-2025" "THE WORLD MEMA ASSOCIATION" tomonidan o'tkazilayotgan olimpiadaga Dubay shahriga yetib borishdi. 🛬
+
+O'quvchilarimiz quyidagi fanlari bo'yicha ishtirok etadilar:
+• Matematika ➕
+• Ingiliz tili 🇬🇧  
+• Mental arifmetika 🧮
+
+🤝O'quvchilarimizga ulkan muvaffaqqiyatlar tilab qolamiz!`,
+      gallery: [
+        '/lovable-uploads/9eef5cdd-fb8f-4120-9a39-841773e20f82.png',
+        '/lovable-uploads/d098917c-d00a-45a8-aff5-195d4dbaa4c1.png',
+        '/lovable-uploads/075db841-6392-4e41-94a6-76db1d3f78cf.png',
+        '/lovable-uploads/4f6ddb2a-f13a-4c49-be5f-ee4c3eaec40a.png'
+      ],
+      contact: ['+998692100007', '+998943030707']
     },
     {
       category: 'Sports Competition',
       title: 'Internal Sports Olympics - First Stage Results',
       excerpt: 'Exciting first stage of internal Olympics among grades 5-6-7 in chess, checkers, and table tennis showcasing our students\' diverse talents.',
       author: 'Sports Department',
-      image: '/lovable-uploads/2b0fa332-17ff-44c8-af07-bd28669f0fa6.png'
+      image: '/lovable-uploads/2b0fa332-17ff-44c8-af07-bd28669f0fa6.png',
+      detailedContent: `5-6-7 sinflar o'rtasida sportning shaxmat,♟ shashka va stol tennis🏓 turlari bo'yicha, ichki olimpiadamizning birinchi bosqich o'yinlari qizg'in tarzda olib borilmoqda.🚀
+
+Barcha sportchi o'quvchilarimizga omad tilab qolamiz!🤝
+
+Bu olimpiada o'quvchilarimizning sport sohasidagi iqtidorlarini namoyon etish va raqobatbardosh muhitda o'z kuchlarini sinab ko'rish imkonini beradi.`,
+      gallery: [
+        '/lovable-uploads/8355c927-3d54-4804-8330-ff4c6ccff7ce.png',
+        '/lovable-uploads/c3acbd91-5b95-4af4-80df-be462ea339cf.png',
+        '/lovable-uploads/bf12f802-322d-46ff-a52a-399933cbec86.png',
+        '/lovable-uploads/34956b97-8b9c-4b29-9620-3403c9395ec2.png'
+      ]
     },
     {
       category: 'Academic Achievement',
       title: 'TIMO Competition Success - Antalya Qualification',
       excerpt: 'Al-Xorazmiy school\'s talented students showed excellent results in the TIMO competition selection stage, won medals and qualified for the international stage in Antalya!',
       author: 'Academic Team',
-      image: '/lovable-uploads/30a66c16-1e0c-4a4b-8921-68fe57a68f12.png'
+      image: '/lovable-uploads/30a66c16-1e0c-4a4b-8921-68fe57a68f12.png',
+      detailedContent: `TIMO 2025 | Turkic International Mathematical Olympiad 🇹🇷
+
+🤩Yana bir yutuq!
+
+AL-XORAZMIY maktabining iqtidorli o'quvchilari TIMO musobaqasining saralash bosqichida a'lo natijalar ko'rsatib, medallarni qo'lga kiritishdi va Antalya shahrida bo'lib o'tadigan xalqaro bosqichga yo'llanmani qo'lga kiritishdi!👏
+
+Ularning bilimga bo'lgan ishtiyoqi, mehnati va sabr-toqati yuksak natijalarni taqdim etdi. Ustozlarga ham chuqur minnatdorchilik bildiramiz🤝
+
+Bu matematika olimpiadasi Turkiy xalqlar o'rtasida o'tkaziladigan eng nufuzli musobaqalardan biri hisoblanadi.`
     }
   ];
 
+  const handleReadMore = (article) => {
+    setSelectedArticle(article);
+  };
+
+  const closeModal = () => {
+    setSelectedArticle(null);
+  };
+
   return (
-    <section id="news" className="py-20 bg-gradient-to-br from-teal-50 to-blue-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-teal-100 text-teal-800 text-sm font-medium mb-4">
-            <Calendar className="w-4 h-4 mr-2" />
-            Latest Updates
+    <>
+      <section id="news" className="py-20 bg-gradient-to-br from-teal-50 to-blue-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-teal-100 text-teal-800 text-sm font-medium mb-4">
+              <Calendar className="w-4 h-4 mr-2" />
+              Latest Updates
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              News & Events
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Stay updated with the latest news, achievements, and events from Al-Xorazmiy School.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            News & Events
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stay updated with the latest news, achievements, and events from Al-Xorazmiy School.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articles.map((article, index) => (
-            <NewsCard key={index} article={article} index={index} />
-          ))}
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {articles.map((article, index) => (
+              <NewsCard 
+                key={index} 
+                article={article} 
+                index={index} 
+                onReadMore={handleReadMore}
+              />
+            ))}
+          </div>
 
-        <div className="text-center mt-12">
-          <Button size="lg" className="bg-teal-600 hover:bg-teal-700 px-8 py-4 text-lg font-semibold group">
-            View All News
-            <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <div className="text-center mt-12">
+            <Button size="lg" className="bg-teal-600 hover:bg-teal-700 px-8 py-4 text-lg font-semibold group">
+              View All News
+              <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <NewsModal 
+        article={selectedArticle}
+        isOpen={!!selectedArticle}
+        onClose={closeModal}
+      />
+    </>
   );
 };
