@@ -2,30 +2,33 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const Contact = () => {
+  const { t } = useLanguage();
+
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email',
+      title: t('email'),
       details: 'alkhorazmiynamangan@gmail.com',
       action: 'mailto:alkhorazmiynamangan@gmail.com'
     },
     {
       icon: Phone,
-      title: 'Phone',
+      title: t('phone'),
       details: '+998 94 303 07 07',
       action: 'tel:+998943030707'
     },
     {
       icon: MapPin,
-      title: 'Address',
+      title: t('address'),
       details: 'Namangan shahar, Namangan ko\'chasi, 17A Uy',
       action: '#'
     },
     {
       icon: Clock,
-      title: 'Class Time',
+      title: t('classTime'),
       details: '08:30 - 17:00',
       action: '#'
     }
@@ -37,10 +40,10 @@ export const Contact = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Get in Touch
+            {t('getInTouch')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Ready to start your educational journey? Contact us today to learn more about Al-Xorazmiy School.
+            {t('readyToStart')}
           </p>
         </div>
 
@@ -62,7 +65,7 @@ export const Contact = () => {
                     href={item.action}
                     className="mt-3 text-teal-600 hover:text-teal-700 font-medium text-sm transition-colors"
                   >
-                    Contact Now
+                    {t('contactNow')}
                   </a>
                 )}
               </div>
@@ -74,10 +77,10 @@ export const Contact = () => {
         <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
           <div className="text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Ready to Join Al-Xorazmiy School?
+              {t('readyToJoin')}
             </h3>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Take the first step towards excellence in education. Our admissions team is ready to help you begin your journey.
+              {t('takeFirstStep')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -86,7 +89,7 @@ export const Contact = () => {
                 onClick={() => window.location.href = 'mailto:alkhorazmiynamangan@gmail.com'}
               >
                 <Mail className="mr-2 w-5 h-5" />
-                Send Email
+                {t('sendEmail')}
               </Button>
               <Button 
                 size="lg"
@@ -95,7 +98,7 @@ export const Contact = () => {
                 onClick={() => window.location.href = 'tel:+998943030707'}
               >
                 <Phone className="mr-2 w-5 h-5" />
-                Call Now
+                {t('callNow')}
               </Button>
             </div>
           </div>

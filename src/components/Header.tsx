@@ -8,11 +8,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('EN');
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,18 +24,25 @@ export const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Programs', href: '#programs' },
-    { name: 'News', href: '#news' },
-    { name: 'Contact', href: '#contact' }
+    { name: t('home'), href: '#home' },
+    { name: t('about'), href: '#about' },
+    { name: t('programs'), href: '#programs' },
+    { name: t('news'), href: '#news' },
+    { name: t('contact'), href: '#contact' }
   ];
 
   const languages = [
-    { code: 'EN', name: 'English', flag: '🇺🇸' },
-    { code: 'UZ', name: 'O\'zbekcha', flag: '🇺🇿' },
-    { code: 'RU', name: 'Русский', flag: '🇷🇺' }
+    { code: 'EN' as const, name: 'English', flag: '🇺🇸' },
+    { code: 'UZ' as const, name: 'O\'zbekcha', flag: '🇺🇿' },
+    { code: 'RU' as const, name: 'Русский', flag: '🇷🇺' }
   ];
+
+  const handleApplyNow = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -92,14 +100,14 @@ export const Header = () => {
                   }`}
                 >
                   <Globe className="w-4 h-4" />
-                  <span className="text-sm font-medium">{selectedLanguage}</span>
+                  <span className="text-sm font-medium">{language}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48 bg-white border border-gray-200 shadow-lg">
                 {languages.map((lang) => (
                   <DropdownMenuItem 
                     key={lang.code}
-                    onClick={() => setSelectedLanguage(lang.code)}
+                    onClick={() => setLanguage(lang.code)}
                     className="flex items-center space-x-3 px-3 py-2 hover:bg-blue-50 cursor-pointer"
                   >
                     <span className="text-lg">{lang.flag}</span>
@@ -110,9 +118,10 @@ export const Header = () => {
             </DropdownMenu>
 
             <Button 
+              onClick={handleApplyNow}
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
             >
-              Apply Now
+              {t('applyNow')}
             </Button>
           </div>
 
@@ -153,7 +162,7 @@ export const Header = () => {
                   <button
                     key={lang.code}
                     onClick={() => {
-                      setSelectedLanguage(lang.code);
+                      setLanguage(lang.code);
                       setIsMenuOpen(false);
                     }}
                     className="flex items-center space-x-3 w-full py-2 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
@@ -165,8 +174,14 @@ export const Header = () => {
               </div>
               
               <div className="pt-4 border-t border-gray-100">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium">
-                  Apply Now
+                <Button 
+                  onClick={() => {
+                    handleApplyNow();
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium"
+                >
+                  {t('applyNow')}
                 </Button>
               </div>
             </nav>

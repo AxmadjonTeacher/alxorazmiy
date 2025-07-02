@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import { Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
@@ -50,7 +52,7 @@ export const Hero = () => {
 
           {/* Subtitle */}
           <p className="text-xl sm:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '400ms' }}>
-            Al-Xorazmiy School - Where innovation meets tradition, fostering excellence in modern education and personal development.
+            {t('schoolDescription')}
           </p>
 
           {/* Contact Us Button */}
@@ -61,7 +63,7 @@ export const Hero = () => {
               className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold group transition-all duration-300 hover:scale-105"
             >
               <Phone className="mr-2 w-5 h-5" />
-              Contact Us
+              {t('contactUs')}
             </Button>
           </div>
 
@@ -73,8 +75,8 @@ export const Hero = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <div className="text-2xl font-bold text-white">Diverse</div>
-              <div className="text-white/70">Subjects</div>
+              <div className="text-2xl font-bold text-white">{t('diverse')}</div>
+              <div className="text-white/70">{t('subjects')}</div>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mx-auto mb-3">
@@ -82,8 +84,8 @@ export const Hero = () => {
                   <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
                 </svg>
               </div>
-              <div className="text-2xl font-bold text-white">Modern</div>
-              <div className="text-white/70">Approach</div>
+              <div className="text-2xl font-bold text-white">{t('modern')}</div>
+              <div className="text-white/70">{t('approach')}</div>
             </div>
           </div>
         </div>
