@@ -24,8 +24,7 @@ export const About = () => {
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-teal-50 to-blue-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Content */}
+        <div className="max-w-4xl mx-auto">
           <div className="space-y-8">
             <div>
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-teal-100 text-teal-800 text-sm font-medium mb-4">
@@ -46,7 +45,7 @@ export const About = () => {
 
             {/* Features */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">🔹 Why Choose Al-Xorazmiy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Al-Xorazmiy?</h3>
               <div className="space-y-6">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start space-x-4 group">
@@ -60,42 +59,6 @@ export const About = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-
-          {/* Right Column - Visual */}
-          <div className="relative">
-            <div className="bg-gradient-to-br from-teal-500 to-blue-600 rounded-3xl p-8 text-white">
-              <div className="space-y-6">
-                <div className="text-center">
-                  <div className="text-4xl font-bold mb-2">2024</div>
-                  <div className="text-teal-100">Newly Established</div>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-6 text-center">
-                  <div>
-                    <div className="text-2xl font-bold mb-1">Modern</div>
-                    <div className="text-teal-100 text-sm">Facilities</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold mb-1">Expert</div>
-                    <div className="text-teal-100 text-sm">Teachers</div>
-                  </div>
-                </div>
-                
-                <div className="text-center">
-                  <div className="text-3xl font-bold mb-2">Future-Ready</div>
-                  <div className="text-teal-100">Education</div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center animate-pulse">
-              <Star className="w-8 h-8 text-white" />
-            </div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-green-400 rounded-full flex items-center justify-center animate-pulse" style={{ animationDelay: '1s' }}>
-              <Lightbulb className="w-6 h-6 text-white" />
             </div>
           </div>
         </div>

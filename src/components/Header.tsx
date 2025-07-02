@@ -58,11 +58,6 @@ export const Header = () => {
               }`}>
                 Al-Xorazmiy
               </h1>
-              <p className={`text-base lg:text-lg transition-colors duration-300 ${
-                isScrolled ? 'text-gray-600' : 'text-white/80'
-              }`}>
-                School
-              </p>
             </div>
           </div>
 
