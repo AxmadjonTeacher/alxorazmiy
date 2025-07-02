@@ -6,25 +6,21 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 const NewsCard = ({ article, index }) => {
   return (
     <Card className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-white border-0 shadow-lg overflow-hidden animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
-      <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-teal-500 to-blue-600 relative overflow-hidden h-48">
+      <div className="aspect-w-16 aspect-h-9 relative overflow-hidden h-48">
+        <img 
+          src={article.image} 
+          alt={article.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
         <div className="absolute bottom-4 left-4 text-white">
           <span className="text-sm font-medium bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
             {article.category}
           </span>
         </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <article.icon className="w-16 h-16 text-white/80" />
-        </div>
       </div>
 
       <CardHeader className="pb-3">
-        <div className="flex items-center text-sm text-gray-500 mb-3">
-          <Calendar className="w-4 h-4 mr-2" />
-          {article.date}
-          <Clock className="w-4 h-4 ml-4 mr-2" />
-          {article.readTime}
-        </div>
         <h3 className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors duration-300 line-clamp-2">
           {article.title}
         </h3>
@@ -58,28 +54,22 @@ export const News = () => {
       category: 'International Competition',
       title: 'Al-Xorazmiy Students Compete in Dubai Olympics',
       excerpt: 'Al-Xorazmiy international school students traveled to Dubai to participate in the Olympics organized by "THE WORLD MEMA ASSOCIATION" Dubai-2025.',
-      date: 'December 2024',
-      readTime: '3 min read',
       author: 'Al-Xorazmiy Staff',
-      icon: Plane
+      image: '/lovable-uploads/b3cb1f3c-e2a9-4358-9c12-a3457f8e05d8.png'
     },
     {
       category: 'Sports Competition',
       title: 'Internal Sports Olympics - First Stage Results',
       excerpt: 'Exciting first stage of internal Olympics among grades 5-6-7 in chess, checkers, and table tennis showcasing our students\' diverse talents.',
-      date: 'December 2024',
-      readTime: '2 min read',
       author: 'Sports Department',
-      icon: Trophy
+      image: '/lovable-uploads/2b0fa332-17ff-44c8-af07-bd28669f0fa6.png'
     },
     {
       category: 'Academic Achievement',
       title: 'TIMO Competition Success - Antalya Qualification',
       excerpt: 'Al-Xorazmiy school\'s talented students showed excellent results in the TIMO competition selection stage, won medals and qualified for the international stage in Antalya!',
-      date: 'December 2024',
-      readTime: '4 min read',
       author: 'Academic Team',
-      icon: Trophy
+      image: '/lovable-uploads/30a66c16-1e0c-4a4b-8921-68fe57a68f12.png'
     }
   ];
 
