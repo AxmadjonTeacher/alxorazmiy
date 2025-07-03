@@ -134,6 +134,56 @@ export const News = () => {
 
   const articles = [
     {
+      category: 'School Election',
+      title: 'Presidential Election - First Step Towards Youth Leadership',
+      excerpt: 'A historic Presidential Election was held at our school yesterday! This initiative was organized to improve education and upbringing quality, and to educate our youth as active, initiative-taking, responsible leaders.',
+      author: 'Al-Xorazmiy Staff',
+      image: '/lovable-uploads/ccfe7485-7bd9-4276-9959-dc5f4cf0c334.png',
+      detailedContent: `Prezident saylovi — yosh avlodni liderlik sari ilk qadamidir!
+
+Kuni kecha maktabimizda muhim va tarixiy voqelik — Prezident saylovi bo'lib o'tdi! Bu tashabbus ta'lim va tarbiya sifatini yana-da yaxshilash, yoshlarimizni faol, tashabbuskor, mas'uliyatli rahbarlar sifatida tarbiyalash maqsadida tashkil etildi.
+
+Saylov jarayoni ochiq, oshkora va adolatli tarzda o'tkazildi. O'quvchilar o'z nomzodlarini ilgari surish, debatlarda ishtirok etish va saylovoldi dasturlarini taqdim etish orqali o'z fikri va pozitsiyasini erkin ifoda etdilar.
+
+Bu nafaqat bilim, balki demokratiya va fuqorolik jamiyati saboqlarini o'rgatadigan, har bir o'quvchini faol fuqaro sifatida shakllantiradigan ulkan qadamdir.`,
+      gallery: [
+        '/lovable-uploads/688d8a79-3021-43b5-a8ac-bafea3f0d2e1.png',
+        '/lovable-uploads/b81dc21e-b3d4-4ce6-a773-c8a307b95e33.png',
+        '/lovable-uploads/ae047107-9b95-4530-af17-8ab12dac5830.png'
+      ]
+    },
+    {
+      category: 'Educational Trip',
+      title: 'Al-Xorazmiy Excursion: Visit to Sultan Uvays Qaroniy Mausoleum',
+      excerpt: 'Students from Al-Xorazmiy school visited the Sultan Uvays Qaroniy Mausoleum as part of their educational and cultural development program.',
+      author: 'Al-Xorazmiy Staff',
+      image: '/lovable-uploads/ba6225f4-5243-4ff3-93fd-a2c5b838645c.png',
+      detailedContent: `Al-Xorazmiyde ekskursiya: Sulton Uvays Qaroniy maqbarasiga ziyoratga borishdi.
+
+Maktabimiz o'quvchilari ta'lim va madaniy rivojlanish dasturi doirasida Sulton Uvays Qaroniy maqbarasiga tashrif buyurishdi. Bu ziyorat o'quvchilarimizning tarixiy va madaniy xotirasini boyitish, milliy qadriyatlarimiz bilan tanishish maqsadida tashkil etildi.
+
+O'quvchilar bu ziyorat davomida tarixiy ma'lumotlar bilan tanishdilar va o'z milliy merosimizni chuqurroq tushunishga erishdilar.`,
+      gallery: [
+        '/lovable-uploads/c5d7f629-3604-469f-948c-c2fb48540b17.png',
+        '/lovable-uploads/c140f20c-68dc-4a34-8af5-433423b47752.png'
+      ]
+    },
+    {
+      category: 'Academic Assessment',
+      title: 'Weekly Tests at Al-Xorazmiy School',
+      excerpt: 'Weekly knowledge assessment processes are taking place, where students take weekly exams to evaluate their learning progress.',
+      author: 'Academic Team',
+      image: '/lovable-uploads/dd633f08-2ee6-4b68-9c8e-45e03ea0c639.png',
+      detailedContent: `Har haftada bir olingan bilimlarni tekshirish jarayonlari bo'lmoqda, ya'ni o'quvchilar haftalik imtihonni topshirishmoqda.
+
+Bu imtihonlarda qanchalik baland ball to'plasalar keyingi GRANT uchun bo'lib o'tadigan imtihonda o'quvchilarning foydalariga ishlaydi.
+
+Haftalik testlar o'quvchilarning bilim darajasini muntazam baholash va ularning kelajakdagi grant imtihonlariga tayyorgarlik ko'rish uchun muhim ahamiyatga ega.`,
+      gallery: [
+        '/lovable-uploads/a30fee03-262c-479c-b560-a952c02e2cb3.png'
+      ]
+    },
+    {
       category: 'International Competition',
       title: 'Al-Xorazmiy Students Compete in Dubai Olympics',
       excerpt: 'Al-Xorazmiy international school students traveled to Dubai to participate in the Olympics organized by "THE WORLD MEMA ASSOCIATION" Dubai-2025.',
