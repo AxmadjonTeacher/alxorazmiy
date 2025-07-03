@@ -37,9 +37,8 @@ const translations = {
     sendEmail: 'Send Email',
     callNow: 'Call Now',
     // Hero section translations
-    excellenceInEducationNewly: 'Excellence in Education - Newly Established',
-    // Stats section translations
     excellenceInEducation: 'Excellence in Education',
+    // Stats section translations
     statsDescription: 'Our commitment to providing high-quality education with modern teaching methods and innovative approaches.',
     academicSubjects: 'Academic Subjects',
     teachingStaff: 'Teaching Staff',
@@ -125,9 +124,8 @@ const translations = {
     sendEmail: 'Email yuborish',
     callNow: 'Hoziroq qo\'ng\'iroq qiling',
     // Hero section translations
-    excellenceInEducationNewly: 'Ta\'limda mukammallik - Yangi tashkil etilgan',
-    // Stats section translations
     excellenceInEducation: 'Ta\'limda mukammallik',
+    // Stats section translations
     statsDescription: 'Zamonaviy o\'qitish usullari va innovatsion yondashuvlar bilan yuqori sifatli ta\'lim berishga majburiyatimiz.',
     academicSubjects: 'Akademik fanlar',
     teachingStaff: 'O\'qituvchilar',
@@ -201,7 +199,7 @@ const translations = {
     subjects: 'Предметы',
     modern: 'Современный',
     approach: 'Подход',
-    getInTouch: 'Свяжитесь с нами',
+    getInTouch: 'Свяжитесь с нami',
     readyToStart: 'Готовы начать свое образовательное путешествие? Свяжитесь с нами сегодня, чтобы узнать больше о школе Аль-Хорезми.',
     email: 'Электронная почта',
     phone: 'Телефон',
@@ -213,9 +211,8 @@ const translations = {
     sendEmail: 'Отправить email',
     callNow: 'Позвонить сейчас',
     // Hero section translations
-    excellenceInEducationNewly: 'Совершенство в образовании - Недавно основанная',
-    // Stats section translations
     excellenceInEducation: 'Совершенство в образовании',
+    // Stats section translations
     statsDescription: 'Наша приверженность предоставлению высококачественного образования с современными методами обучения и инновационными подходами.',
     academicSubjects: 'Академические предметы',
     teachingStaff: 'Преподавательский состав',

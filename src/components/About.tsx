@@ -35,8 +35,8 @@ export const About = () => {
                 {t('aboutUs')}
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                {t('shapingTomorrowsLeaders').split(' Tomorrow\'s')[0]}
-                <span className="block text-teal-600">{t('shapingTomorrowsLeaders').split(' Tomorrow\'s')[1] ? 'Tomorrow\'s' + t('shapingTomorrowsLeaders').split(' Tomorrow\'s')[1] : t('shapingTomorrowsLeaders').includes('сегодня') ? t('shapingTomorrowsLeaders').split('лидеров ')[1] : t('shapingTomorrowsLeaders').includes('bugun') ? t('shapingTomorrowsLeaders').split('yetakchilarni ')[1] : 'Leaders Today'}</span>
+                <span className="block">{t('shapingTomorrowsLeaders').split(' ').slice(0, -1).join(' ')}</span>
+                <span className="block text-teal-600">{t('shapingTomorrowsLeaders').split(' ').slice(-1)[0]}</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 {t('aboutDescription1')}
