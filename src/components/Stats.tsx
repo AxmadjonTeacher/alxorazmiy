@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { TrendingUp, Users, BookOpen, Trophy } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const StatItem = ({ icon: Icon, value, label, suffix = '' }) => {
   const [count, setCount] = useState(0);
@@ -55,11 +56,13 @@ const StatItem = ({ icon: Icon, value, label, suffix = '' }) => {
 };
 
 export const Stats = () => {
+  const { t } = useLanguage();
+
   const stats = [
-    { icon: BookOpen, value: 'Diverse', label: 'Academic Subjects', suffix: '' },
-    { icon: Users, value: 'Expert', label: 'Teaching Staff', suffix: '' },
-    { icon: Trophy, value: 'Modern', label: 'Facilities', suffix: '' },
-    { icon: TrendingUp, value: 'Innovative', label: 'Approach', suffix: '' }
+    { icon: BookOpen, value: t('diverse'), label: t('academicSubjects'), suffix: '' },
+    { icon: Users, value: t('expertEducators').split(' ')[0], label: t('teachingStaff'), suffix: '' },
+    { icon: Trophy, value: t('modern'), label: t('facilities'), suffix: '' },
+    { icon: TrendingUp, value: t('innovativeLearningEnvironment').split(' ')[0], label: t('approach'), suffix: '' }
   ];
 
   return (
@@ -67,10 +70,10 @@ export const Stats = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Excellence in Education
+            {t('excellenceInEducation')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Our commitment to providing high-quality education with modern teaching methods and innovative approaches.
+            {t('statsDescription')}
           </p>
         </div>
 

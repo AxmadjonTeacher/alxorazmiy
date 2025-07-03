@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 export type Language = 'EN' | 'UZ' | 'RU';
@@ -37,6 +36,26 @@ const translations = {
     takeFirstStep: 'Take the first step towards excellence in education. Our admissions team is ready to help you begin your journey.',
     sendEmail: 'Send Email',
     callNow: 'Call Now',
+    // Hero section translations
+    excellenceInEducationNewly: 'Excellence in Education - Newly Established',
+    // Stats section translations
+    excellenceInEducation: 'Excellence in Education',
+    statsDescription: 'Our commitment to providing high-quality education with modern teaching methods and innovative approaches.',
+    academicSubjects: 'Academic Subjects',
+    teachingStaff: 'Teaching Staff',
+    facilities: 'Facilities',
+    // About section translations
+    aboutUs: 'About Us',
+    shapingTomorrowsLeaders: 'Shaping Tomorrow\'s Leaders Today',
+    aboutDescription1: 'Al-Xorazmiy School is a forward-thinking private institution dedicated to nurturing young learners through a strong foundation in English, Mathematics, Information Technology, and Robotics. Our mission is to equip students with the skills and mindset needed to thrive in a rapidly changing, technology-driven world.',
+    aboutDescription2: 'We combine academic excellence with hands-on learning to spark curiosity, boost confidence, and foster a lifelong love of learning. At Al-Xorazmiy, we don\'t just teach — we empower students to lead, innovate, and succeed.',
+    whyChooseAlXorazmiy: 'Why Choose Al-Xorazmiy?',
+    futureFocusedCurriculum: 'Future-Focused Curriculum',
+    futureFocusedDescription: 'Specialized programs in English, Math, IT, and Robotics to prepare students for tomorrow\'s challenges.',
+    expertEducators: 'Expert Educators',
+    expertEducatorsDescription: 'Passionate teachers with deep subject knowledge and a commitment to student success.',
+    innovativeLearningEnvironment: 'Innovative Learning Environment',
+    innovativeLearningDescription: 'Modern classrooms, computer labs, and robotics facilities designed to support active and project-based learning.',
     // Programs section translations
     ourAcademicPrograms: 'Our Academic Programs',
     programsDescription: 'Discover our comprehensive range of subjects designed to prepare students for success in their academic and professional journeys.',
@@ -105,6 +124,26 @@ const translations = {
     takeFirstStep: 'Ta\'limda mukammallik sari birinchi qadamni tashlang. Bizning qabul komissiyamiz sizning sayohatingizni boshlashga yordam berishga tayyor.',
     sendEmail: 'Email yuborish',
     callNow: 'Hoziroq qo\'ng\'iroq qiling',
+    // Hero section translations
+    excellenceInEducationNewly: 'Ta\'limda mukammallik - Yangi tashkil etilgan',
+    // Stats section translations
+    excellenceInEducation: 'Ta\'limda mukammallik',
+    statsDescription: 'Zamonaviy o\'qitish usullari va innovatsion yondashuvlar bilan yuqori sifatli ta\'lim berishga majburiyatimiz.',
+    academicSubjects: 'Akademik fanlar',
+    teachingStaff: 'O\'qituvchilar',
+    facilities: 'Zamonaviy qurilmalar',
+    // About section translations
+    aboutUs: 'Biz haqimizda',
+    shapingTomorrowsLeaders: 'Bugun ertangi yetakchilarni shakllantirish',
+    aboutDescription1: 'Al-Xorazmiy maktabi - ingliz tili, matematika, axborot texnologiyalari va robotika bo\'yicha mustahkam poydevor orqali yosh o\'rganuvchilarni tarbiyalashga bag\'ishlangan ilg\'or fikrlaydigan xususiy muassasa. Bizning missiyamiz talabalarni tez o\'zgarayotgan, texnologiya boshqariladigan dunyoda muvaffaqiyat qozonish uchun zarur ko\'nikmalar va fikrlash tarzi bilan ta\'minlashdir.',
+    aboutDescription2: 'Biz akademik mukammallikni amaliy ta\'lim bilan birlashtirmoq, qiziqish uyg\'otish, ishonchni mustahkamlash va umrbod o\'rganishga muhabbatni rivojlantirishni maqsad qilamiz. Al-Xorazmiyde biz shunchaki dars bermaymiz - biz talabalarni yetakchilik qilish, innovatsiya yaratish va muvaffaqiyat qozonish uchun imkoniytlar yaratamiz.',
+    whyChooseAlXorazmiy: 'Nima uchun Al-Xorazmiyni tanlash kerak?',
+    futureFocusedCurriculum: 'Kelajakka yo\'naltirilgan o\'quv dasturi',
+    futureFocusedDescription: 'Talabalarni ertangi qiyinchiliklarga tayyorlash uchun ingliz tili, matematika, AT va robotika bo\'yicha maxsus dasturlar.',
+    expertEducators: 'Mutaxassis o\'qituvchilar',
+    expertEducatorsDescription: 'Chuqur fan bilimi va talaba muvaffaqiyatiga sodiqlik bilan ajralib turadigan ishtiyoqli o\'qituvchilar.',
+    innovativeLearningEnvironment: 'Innovatsion ta\'lim muhiti',
+    innovativeLearningDescription: 'Faol va loyiha asosidagi ta\'limni qo\'llab-quvvatlash uchun mo\'ljallangan zamonaviy sinflar, kompyuter laboratoriyalari va robotika qurilmalari.',
     // Programs section translations
     ourAcademicPrograms: 'Bizning Ta\'lim Dasturlarimiz',
     programsDescription: 'Talabalarni akademik va kasbiy muvaffaqiyatga tayyorlash uchun mo\'ljallangan keng qamrovli fanlar bilan tanishing.',
@@ -173,6 +212,26 @@ const translations = {
     takeFirstStep: 'Сделайте первый шаг к совершенству в образовании. Наша приемная комиссия готова помочь вам начать свое путешествие.',
     sendEmail: 'Отправить email',
     callNow: 'Позвонить сейчас',
+    // Hero section translations
+    excellenceInEducationNewly: 'Совершенство в образовании - Недавно основанная',
+    // Stats section translations
+    excellenceInEducation: 'Совершенство в образовании',
+    statsDescription: 'Наша приверженность предоставлению высококачественного образования с современными методами обучения и инновационными подходами.',
+    academicSubjects: 'Академические предметы',
+    teachingStaff: 'Преподавательский состав',
+    facilities: 'Современные объекты',
+    // About section translations
+    aboutUs: 'О нас',
+    shapingTomorrowsLeaders: 'Формирование завтрашних лидеров сегодня',
+    aboutDescription1: 'Школа Аль-Хорезми - это передовое частное учреждение, посвященное воспитанию молодых учеников через прочную основу в английском языке, математике, информационных технологиях и робототехнике. Наша миссия - вооружить студентов навыками и мышлением, необходимыми для процветания в быстро меняющемся, технологическом мире.',
+    aboutDescription2: 'Мы сочетаем академическое совершенство с практическим обучением, чтобы пробудить любопытство, повысить уверенность и воспитать пожизненную любовь к обучению. В Аль-Хорезми мы не просто учим — мы даем студентам возможность лидировать, внедрять инновации и добиваться успеха.',
+    whyChooseAlXorazmiy: 'Почему выбрать Аль-Хорезми?',
+    futureFocusedCurriculum: 'Учебная программа, ориентированная на будущее',
+    futureFocusedDescription: 'Специализированные программы по английскому языку, математике, ИТ и робототехнике для подготовки студентов к завтрашним вызовам.',
+    expertEducators: 'Опытные педагоги',
+    expertEducatorsDescription: 'Увлеченные учителя с глубокими знаниями предмета и приверженностью успеху студентов.',
+    innovativeLearningEnvironment: 'Инновационная учебная среда',
+    innovativeLearningDescription: 'Современные классы, компьютерные лаборатории и робототехнические объекты, предназначенные для поддержки активного и проектного обучения.',
     // Programs section translations
     ourAcademicPrograms: 'Наши Учебные Программы',
     programsDescription: 'Ознакомьтесь с нашим широким спектром предметов, предназначенных для подготовки студентов к успеху в их академическом и профессиональном пути.',

@@ -39,14 +39,14 @@ export const Hero = () => {
             <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
             </svg>
-            Excellence in Education - Newly Established
+            {t('excellenceInEducationNewly')}
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            <span className="block animate-fade-in">Empowering</span>
+            <span className="block animate-fade-in">{t('empoweringFutureLeaders').split(' ')[0]}</span>
             <span className="block bg-gradient-to-r from-[#06b6d4] to-[#10b981] bg-clip-text text-transparent animate-fade-in" style={{ animationDelay: '200ms' }}>
-              Future Leaders
+              {t('empoweringFutureLeaders').split(' ').slice(1).join(' ')}
             </span>
           </h1>
 
