@@ -1,56 +1,59 @@
 
 import React from 'react';
 import { BookOpen, Calculator, Monitor, Globe, Bot, Award, PenTool, Languages } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const Programs = () => {
+  const { t } = useLanguage();
+
   const programs = [
     {
       icon: Languages,
-      title: 'English',
-      description: 'Comprehensive English language learning with focus on speaking, writing, and communication skills.',
-      features: ['Speaking Practice', 'Grammar & Writing', 'Literature Study']
+      title: t('english'),
+      description: t('englishDescription'),
+      features: [t('speakingPractice'), t('grammarWriting'), t('literatureStudy')]
     },
     {
       icon: Calculator,
-      title: 'Mathematics',
-      description: 'Advanced mathematical concepts and problem-solving techniques for academic excellence.',
-      features: ['Algebra & Geometry', 'Calculus', 'Problem Solving']
+      title: t('mathematics'),
+      description: t('mathematicsDescription'),
+      features: [t('algebraGeometry'), t('calculus'), t('problemSolving')]
     },
     {
       icon: Monitor,
-      title: 'Information Technology',
-      description: 'Modern IT skills including programming, digital literacy, and computer science fundamentals.',
-      features: ['Programming', 'Digital Skills', 'Computer Science']
+      title: t('informationTechnology'),
+      description: t('itDescription'),
+      features: [t('programming'), t('digitalSkills'), t('computerScience')]
     },
     {
       icon: Globe,
-      title: 'Russian',
-      description: 'Russian language proficiency with emphasis on practical communication and cultural understanding.',
-      features: ['Language Skills', 'Cultural Studies', 'Communication']
+      title: t('russian'),
+      description: t('russianDescription'),
+      features: [t('languageSkills'), t('culturalStudies'), t('communication')]
     },
     {
       icon: Bot,
-      title: 'Robotics',
-      description: 'Hands-on robotics and engineering projects to develop technical and creative thinking.',
-      features: ['Robot Building', 'Programming', 'Engineering Design']
+      title: t('robotics'),
+      description: t('roboticsDescription'),
+      features: [t('robotBuilding'), t('programming'), t('engineeringDesign')]
     },
     {
       icon: Award,
-      title: 'IELTS Preparation',
-      description: 'Intensive IELTS preparation course for international education opportunities.',
-      features: ['Test Strategies', 'Practice Tests', 'Score Improvement']
+      title: t('ieltsPreparation'),
+      description: t('ieltsDescription'),
+      features: [t('testStrategies'), t('practiceTests'), t('scoreImprovement')]
     },
     {
       icon: PenTool,
-      title: 'SAT Preparation',
-      description: 'Comprehensive SAT preparation for university admission success.',
-      features: ['Test Prep', 'Practice Exams', 'Score Enhancement']
+      title: t('satPreparation'),
+      description: t('satDescription'),
+      features: [t('testPrep'), t('practiceExams'), t('scoreEnhancement')]
     },
     {
       icon: BookOpen,
-      title: 'Arabic',
-      description: 'Arabic language studies with focus on reading, writing, and cultural appreciation.',
-      features: ['Language Basics', 'Reading & Writing', 'Cultural Context']
+      title: t('arabic'),
+      description: t('arabicDescription'),
+      features: [t('languageBasics'), t('readingWriting'), t('culturalContext')]
     }
   ];
 
@@ -59,10 +62,10 @@ export const Programs = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Our Academic Programs
+            {t('ourAcademicPrograms')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover our comprehensive range of subjects designed to prepare students for success in their academic and professional journeys.
+            {t('programsDescription')}
           </p>
         </div>
 
