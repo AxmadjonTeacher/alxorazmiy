@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Calendar, Clock, ChevronRight, Trophy, Plane, Users, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -138,7 +137,7 @@ export const News = () => {
       title: 'Presidential Election - First Step Towards Youth Leadership',
       excerpt: 'A historic Presidential Election was held at our school yesterday! This initiative was organized to improve education and upbringing quality, and to educate our youth as active, initiative-taking, responsible leaders.',
       author: 'Al-Xorazmiy Staff',
-      image: '/lovable-uploads/ccfe7485-7bd9-4276-9959-dc5f4cf0c334.png',
+      image: '/lovable-uploads/afaefccf-8ec8-4373-af5d-1749cb22647e.png',
       detailedContent: `Prezident saylovi — yosh avlodni liderlik sari ilk qadamidir!
 
 Kuni kecha maktabimizda muhim va tarixiy voqelik — Prezident saylovi bo'lib o'tdi! Bu tashabbus ta'lim va tarbiya sifatini yana-da yaxshilash, yoshlarimizni faol, tashabbuskor, mas'uliyatli rahbarlar sifatida tarbiyalash maqsadida tashkil etildi.
@@ -275,13 +274,6 @@ Bu matematika olimpiadasi Turkiy xalqlar o'rtasida o'tkaziladigan eng nufuzli mu
                 onReadMore={handleReadMore}
               />
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button size="lg" className="bg-teal-600 hover:bg-teal-700 px-8 py-4 text-lg font-semibold group">
-              View All News
-              <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
           </div>
         </div>
       </section>

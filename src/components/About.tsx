@@ -1,10 +1,12 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Globe, Star, Lightbulb, Users, BookOpen, Monitor } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import VariableProximity from './VariableProximity';
 
 export const About = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const containerRef = useRef(null);
 
   const features = [
     {
@@ -25,7 +27,7 @@ export const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-teal-50 to-blue-50">
+    <section id="about" className="py-20 bg-gradient-to-br from-teal-50 to-blue-50" ref={containerRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-8">
@@ -36,19 +38,55 @@ export const About = () => {
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 <span className="block">{t('shapingTomorrowsLeaders').split(' ').slice(0, -1).join(' ')}</span>
-                <span className="block text-teal-600">{t('shapingTomorrowsLeaders').split(' ').slice(-1)[0]}</span>
+                <span className="block text-teal-600">
+                  <VariableProximity
+                    label={t('shapingTomorrowsLeaders').split(' ').slice(-1)[0]}
+                    className="variable-proximity-demo"
+                    fromFontVariationSettings="'wght' 700, 'opsz' 20"
+                    toFontVariationSettings="'wght' 900, 'opsz' 40"
+                    containerRef={containerRef}
+                    radius={150}
+                    falloff="linear"
+                  />
+                </span>
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                {t('aboutDescription1')}
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                {t('aboutDescription2')}
-              </p>
+              <div className="text-lg text-gray-600 leading-relaxed mb-6">
+                <VariableProximity
+                  label={t('aboutDescription1')}
+                  className="variable-proximity-demo"
+                  fromFontVariationSettings="'wght' 400, 'opsz' 12"
+                  toFontVariationSettings="'wght' 600, 'opsz' 20"
+                  containerRef={containerRef}
+                  radius={120}
+                  falloff="exponential"
+                />
+              </div>
+              <div className="text-lg text-gray-600 leading-relaxed">
+                <VariableProximity
+                  label={t('aboutDescription2')}
+                  className="variable-proximity-demo"
+                  fromFontVariationSettings="'wght' 400, 'opsz' 12"
+                  toFontVariationSettings="'wght' 600, 'opsz' 20"
+                  containerRef={containerRef}
+                  radius={120}
+                  falloff="exponential"
+                />
+              </div>
             </div>
 
             {/* Features */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('whyChooseAlXorazmiy')}</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <VariableProximity
+                  label={t('whyChooseAlXorazmiy')}
+                  className="variable-proximity-demo"
+                  fromFontVariationSettings="'wght' 700, 'opsz' 18"
+                  toFontVariationSettings="'wght' 800, 'opsz' 30"
+                  containerRef={containerRef}
+                  radius={130}
+                  falloff="linear"
+                />
+              </h3>
               <div className="space-y-6">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start space-x-4 group">
@@ -56,8 +94,28 @@ export const About = () => {
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h4>
-                      <p className="text-gray-600">{feature.description}</p>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                        <VariableProximity
+                          label={feature.title}
+                          className="variable-proximity-demo"
+                          fromFontVariationSettings="'wght' 600, 'opsz' 14"
+                          toFontVariationSettings="'wght' 700, 'opsz' 24"
+                          containerRef={containerRef}
+                          radius={100}
+                          falloff="exponential"
+                        />
+                      </h4>
+                      <div className="text-gray-600">
+                        <VariableProximity
+                          label={feature.description}
+                          className="variable-proximity-demo"
+                          fromFontVariationSettings="'wght' 400, 'opsz' 12"
+                          toFontVariationSettings="'wght' 500, 'opsz' 18"
+                          containerRef={containerRef}
+                          radius={90}
+                          falloff="exponential"
+                        />
+                      </div>
                     </div>
                   </div>
                 ))}
