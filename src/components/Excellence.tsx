@@ -2,10 +2,14 @@
 import React from 'react';
 import { BookOpen, Trophy, Users, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 export const Excellence = () => {
-  const { t } = useLanguage();
+  const handleExplorePrograms = () => {
+    const programsSection = document.getElementById('programs');
+    if (programsSection) {
+      programsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -21,7 +25,7 @@ export const Excellence = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
           {/* Left side - Image */}
           <div className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
@@ -30,65 +34,65 @@ export const Excellence = () => {
                 alt="Students in classroom"
                 className="w-full h-[400px] object-cover"
               />
-              {/* Gradient overlay for better text contrast */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              {/* Decorative border with teal accent */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-teal-400 to-blue-500 rounded-3xl opacity-30 -z-10"></div>
             </div>
-            {/* Decorative border */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-teal-400 to-blue-500 rounded-3xl opacity-20 -z-10"></div>
           </div>
 
-          {/* Right side - Content */}
-          <div className="space-y-8">
-            {/* Stats Cards */}
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl border border-blue-100">
-                <div className="flex items-center justify-center w-16 h-16 bg-blue-500 rounded-2xl mx-auto mb-4">
-                  <BookOpen className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Diverse</h3>
-                <p className="text-gray-600 text-sm">Academic Subjects</p>
+          {/* Right side - Feature Cards in vertical layout */}
+          <div className="space-y-6">
+            <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl border border-blue-100">
+              <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-3xl mx-auto mb-6">
+                <BookOpen className="w-10 h-10 text-white" />
               </div>
-
-              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl border border-blue-100">
-                <div className="flex items-center justify-center w-16 h-16 bg-blue-500 rounded-2xl mx-auto mb-4">
-                  <Trophy className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Modern</h3>
-                <p className="text-gray-600 text-sm">Facilities</p>
-              </div>
-
-              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl border border-blue-100">
-                <div className="flex items-center justify-center w-16 h-16 bg-blue-500 rounded-2xl mx-auto mb-4">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Expert</h3>
-                <p className="text-gray-600 text-sm">Teaching Staff</p>
-              </div>
-
-              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl border border-blue-100">
-                <div className="flex items-center justify-center w-16 h-16 bg-blue-500 rounded-2xl mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Innovative</h3>
-                <p className="text-gray-600 text-sm">Approach</p>
-              </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-3">Diverse</h3>
+              <p className="text-gray-600">Academic Subjects</p>
             </div>
 
-            {/* Community Section */}
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                Join a Vibrant Community
-              </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                We foster a supportive and inclusive community where every student feels valued. 
-                Our diverse student body brings unique perspectives, enriching the learning experience for everyone.
-              </p>
-              <Button 
-                className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold"
-              >
-                Explore Our Programs
-              </Button>
+            <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl border border-blue-100">
+              <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-3xl mx-auto mb-6">
+                <Trophy className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-3">Modern</h3>
+              <p className="text-gray-600">Facilities</p>
             </div>
+
+            <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl border border-blue-100">
+              <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-3xl mx-auto mb-6">
+                <Users className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-3">Expert</h3>
+              <p className="text-gray-600">Teaching Staff</p>
+            </div>
+
+            <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl border border-blue-100">
+              <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-3xl mx-auto mb-6">
+                <TrendingUp className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-3">Innovative</h3>
+              <p className="text-gray-600">Approach</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Community Section - Full Width */}
+        <div className="bg-gray-50 rounded-3xl p-12">
+          <h3 className="text-4xl font-bold text-gray-900 mb-6 text-center">
+            Join a Vibrant Community
+          </h3>
+          <p className="text-gray-600 mb-8 leading-relaxed text-center max-w-4xl mx-auto text-lg">
+            Beyond academics, we foster a supportive and inclusive community where every student feels valued. 
+            We encourage collaboration, creativity, and critical thinking, building a foundation for lifelong 
+            friendships and success. Our diverse student body brings unique perspectives, enriching the learning 
+            experience for everyone.
+          </p>
+          <div className="text-center">
+            <Button 
+              onClick={handleExplorePrograms}
+              className="bg-blue-500 hover:bg-blue-600 text-white px-10 py-4 rounded-xl font-semibold text-lg"
+            >
+              Explore Our Programs
+            </Button>
           </div>
         </div>
       </div>
