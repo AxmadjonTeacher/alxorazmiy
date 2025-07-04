@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { BookOpen, Calculator, Monitor, Globe, Bot, Award, PenTool, Languages, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -60,7 +59,7 @@ export const Programs = () => {
       title: t('ieltsPreparation'),
       description: t('ieltsDescription'),
       features: [t('testStrategies'), t('practiceTests'), t('scoreImprovement')],
-      bgImage: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=6000&q=80'
+      bgImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=7952&q=80'
     },
     {
       icon: PenTool,
