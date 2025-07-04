@@ -6,7 +6,6 @@ import VariableProximity from './VariableProximity';
 
 export const About = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
@@ -25,18 +24,8 @@ export const About = () => {
       observer.observe(sectionRef.current);
     }
 
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const scrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
-        setScrollY(scrollProgress);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -78,27 +67,14 @@ export const About = () => {
       className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden"
     >
       {/* Animated background elements */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{
-          transform: `translateY(${scrollY * 50}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      >
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-200 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header with Variable Proximity Text */}
-        <div 
-          className="text-center mb-16"
-          style={{
-            transform: `translateY(${(1 - scrollY) * 30}px)`,
-            opacity: Math.min(1, scrollY * 2),
-            transition: 'all 0.3s ease-out'
-          }}
-        >
+        <div className="text-center mb-16">
           <div ref={containerRef} className="relative inline-block mb-6">
             <VariableProximity
               label="Excellence in Education"
@@ -110,13 +86,7 @@ export const About = () => {
               falloff="exponential"
             />
           </div>
-          <p 
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-            style={{
-              transform: `translateY(${(1 - scrollY) * 20}px)`,
-              opacity: Math.min(1, (scrollY - 0.1) * 2)
-            }}
-          >
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Our commitment to providing high-quality education with modern teaching methods and innovative approaches.
           </p>
         </div>
@@ -125,16 +95,14 @@ export const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
-            const cardScrollOffset = (scrollY - feature.delay) * 100;
             
             return (
               <div
                 key={index}
                 className={`group relative transition-all duration-700 ${
-                  isVisible ? 'opacity-100' : 'opacity-0'
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}
                 style={{
-                  transform: `translateY(${Math.max(0, 50 - cardScrollOffset)}px)`,
                   transitionDelay: `${feature.delay}s`
                 }}
               >
@@ -175,13 +143,7 @@ export const About = () => {
         </div>
 
         {/* Bottom Decorative Element */}
-        <div 
-          className="mt-20 text-center"
-          style={{
-            transform: `translateY(${(1 - scrollY) * 40}px)`,
-            opacity: Math.min(1, (scrollY - 0.3) * 2)
-          }}
-        >
+        <div className="mt-20 text-center">
           <div className="inline-flex items-center space-x-2 px-6 py-3 bg-white/50 backdrop-blur-sm rounded-full border border-white/30">
             <div className="w-2 h-2 bg-[#3b4cca] rounded-full animate-pulse"></div>
             <span className="text-gray-600 font-medium">Building Tomorrow's Leaders Today</span>
