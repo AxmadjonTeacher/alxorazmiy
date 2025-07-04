@@ -4,12 +4,22 @@ import { Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+const backgroundImages = [
+  '/lovable-uploads/9600c623-e307-4c5a-9f9a-81ef2bd43e62.png',
+  '/lovable-uploads/f1f3b3be-65d9-4bdc-8b2d-dcb428a6f986.png',
+  '/lovable-uploads/c68acd1b-8451-4597-9050-fbce51bbceba.png'
+];
+
 export const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentBgImage, setCurrentBgImage] = useState('');
   const { t } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
+    // Randomly select one of the background images
+    const randomImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
+    setCurrentBgImage(randomImage);
   }, []);
 
   const handleContactClick = () => {
@@ -21,11 +31,21 @@ export const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with gradient and pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#3b4cca] via-[#0d9488] to-[#1e293b]">
-        <div className="absolute inset-0 bg-black/20"></div>
+      {/* Background with random image */}
+      <div className="absolute inset-0">
+        {currentBgImage && (
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('${currentBgImage}')`
+            }}
+          />
+        )}
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#3b4cca]/80 via-[#0d9488]/80 to-[#1e293b]/80"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
         <div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-10"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }}
