@@ -1,7 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import { X } from 'lucide-react';
 
 interface MapProps {
@@ -11,37 +9,44 @@ interface MapProps {
 
 const Map = ({ isOpen, onClose }: MapProps) => {
   const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
 
   useEffect(() => {
     if (!isOpen || !mapContainer.current) return;
 
-    // Initialize map - Note: Replace with your Mapbox public token
-    mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+    // School address coordinates (approximate location in Namangan)
+    const schoolLocation = { lat: 40.9983, lng: 71.6726 };
     
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v12',
-      center: [71.6726, 40.9983], // Namangan coordinates
-      zoom: 15,
+    // Create the map
+    const map = new google.maps.Map(mapContainer.current, {
+      zoom: 16,
+      center: schoolLocation,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
     });
 
-    // Add marker for Al-Khorazmiy International School
-    new mapboxgl.Marker({ color: '#14b8a6' })
-      .setLngLat([71.6726, 40.9983])
-      .setPopup(
-        new mapboxgl.Popup({ offset: 25 })
-          .setHTML('<h3>Al-Khorazmiy International School</h3><p>Namangan sh., Lola dahasi, Janubiy aylanma yo\'li, 17A</p>')
-      )
-      .addTo(map.current);
+    // Add marker for the school
+    const marker = new google.maps.Marker({
+      position: schoolLocation,
+      map: map,
+      title: 'Al-Khorazmiy International School',
+    });
 
-    // Add navigation controls
-    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    // Add info window
+    const infoWindow = new google.maps.InfoWindow({
+      content: `
+        <div style="padding: 8px;">
+          <h3 style="margin: 0 0 8px 0; font-weight: bold;">Al-Khorazmiy International School</h3>
+          <p style="margin: 0; color: #666;">Namangan sh., Lola dahasi,<br>Janubiy aylanma yo'li, 17A<br>Uzbekistan</p>
+        </div>
+      `,
+    });
 
-    // Cleanup
-    return () => {
-      map.current?.remove();
-    };
+    marker.addListener('click', () => {
+      infoWindow.open(map, marker);
+    });
+
+    // Auto-open info window
+    infoWindow.open(map, marker);
+
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -56,9 +61,32 @@ const Map = ({ isOpen, onClose }: MapProps) => {
           <X className="w-5 h-5 text-gray-600" />
         </button>
         <div ref={mapContainer} className="w-full h-full rounded-lg" />
+        
+        {/* Google Maps API not loaded message */}
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-lg" id="map-placeholder">
+          <div className="text-center p-8">
+            <h3 className="text-lg font-semibold mb-2">Al-Khorazmiy International School</h3>
+            <p className="text-gray-600 mb-4">
+              Namangan sh., Lola dahasi,<br />
+              Janubiy aylanma yo'li, 17A<br />
+              Uzbekistan
+            </p>
+            <p className="text-sm text-gray-500">
+              To enable interactive map, please add Google Maps API key
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
+
+// Hide placeholder when Google Maps loads
+if (typeof google !== 'undefined') {
+  const placeholder = document.getElementById('map-placeholder');
+  if (placeholder) {
+    placeholder.style.display = 'none';
+  }
+}
 
 export default Map;
