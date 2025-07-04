@@ -4,8 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const backgroundImages = [
-  '/lovable-uploads/9600c623-e307-4c5a-9f9a-81ef2bd43e62.png',
-  '/lovable-uploads/c68acd1b-8451-4597-9050-fbce51bbceba.png'
+  '/lovable-uploads/f759dcf9-c5ce-4bf6-a873-e3509db615e3.png'
 ];
 
 export const Hero = () => {
@@ -15,9 +14,8 @@ export const Hero = () => {
 
   useEffect(() => {
     setIsVisible(true);
-    // Randomly select one of the background images
-    const randomImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
-    setCurrentBgImage(randomImage);
+    // Use the single background image
+    setCurrentBgImage(backgroundImages[0]);
   }, []);
 
   const handleContactClick = () => {
@@ -29,7 +27,7 @@ export const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with random image */}
+      {/* Background with single image */}
       <div className="absolute inset-0">
         {currentBgImage && (
           <div 
