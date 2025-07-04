@@ -1,125 +1,78 @@
 
-import React, { useRef } from 'react';
-import { Globe, Star, Lightbulb, Users, BookOpen, Monitor } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { Star } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import VariableProximity from './VariableProximity';
 
 export const About = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const containerRef = useRef(null);
-
-  const features = [
-    {
-      icon: BookOpen,
-      title: t('futureFocusedCurriculum'),
-      description: t('futureFocusedDescription')
-    },
-    {
-      icon: Users,
-      title: t('expertEducators'),
-      description: t('expertEducatorsDescription')
-    },
-    {
-      icon: Monitor,
-      title: t('innovativeLearningEnvironment'),
-      description: t('innovativeLearningDescription')
-    }
+  
+  const schoolImages = [
+    '/lovable-uploads/a6930999-7f9a-4348-88f6-53ce61f177aa.png',
+    '/lovable-uploads/bc9e402f-a892-4616-b433-6288585f8f0d.png',
+    '/lovable-uploads/0e3603ae-cf05-4ac5-9fc6-aa75fb63ede5.png'
   ];
+  
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const handleImageHover = () => {
+    const randomIndex = Math.floor(Math.random() * schoolImages.length);
+    setCurrentImageIndex(randomIndex);
+  };
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-teal-50 to-blue-50" ref={containerRef}>
+    <section id="about" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50" ref={containerRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-8">
-            <div>
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-teal-100 text-teal-800 text-sm font-medium mb-4">
-                <Star className="w-4 h-4 mr-2" />
-                {t('aboutUs')}
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-teal-100 text-teal-800 text-sm font-medium mb-6">
+                  <Star className="w-4 h-4 mr-2" />
+                  {t('aboutUs')}
+                </div>
+                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                  <span className="block">Shaping Tomorrow's</span>
+                  <span className="block text-teal-600">Leaders</span>
+                  <span className="block">Today</span>
+                </h2>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                <span className="block">{t('shapingTomorrowsLeaders').split(' ').slice(0, -1).join(' ')}</span>
-                <span className="block text-teal-600">
-                  <VariableProximity
-                    label={t('shapingTomorrowsLeaders').split(' ').slice(-1)[0]}
-                    className="variable-proximity-demo"
-                    fromFontVariationSettings="'wght' 700, 'opsz' 20"
-                    toFontVariationSettings="'wght' 900, 'opsz' 40"
-                    containerRef={containerRef}
-                    radius={150}
-                    falloff="linear"
-                  />
-                </span>
-              </h2>
-              <div className="text-lg text-gray-600 leading-relaxed mb-6">
-                <VariableProximity
-                  label={t('aboutDescription1')}
-                  className="variable-proximity-demo"
-                  fromFontVariationSettings="'wght' 400, 'opsz' 12"
-                  toFontVariationSettings="'wght' 600, 'opsz' 20"
-                  containerRef={containerRef}
-                  radius={120}
-                  falloff="exponential"
-                />
-              </div>
-              <div className="text-lg text-gray-600 leading-relaxed">
-                <VariableProximity
-                  label={t('aboutDescription2')}
-                  className="variable-proximity-demo"
-                  fromFontVariationSettings="'wght' 400, 'opsz' 12"
-                  toFontVariationSettings="'wght' 600, 'opsz' 20"
-                  containerRef={containerRef}
-                  radius={120}
-                  falloff="exponential"
-                />
+              
+              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+                <p>
+                  Al-Xorazmiy School is a forward-thinking private institution 
+                  dedicated to nurturing young learners through a strong 
+                  foundation in English, Mathematics, Information Technology, 
+                  and Robotics. Our mission is to equip students with the skills 
+                  and mindset needed to thrive in a rapidly changing, 
+                  technology-driven world.
+                </p>
+                <p>
+                  We combine academic excellence with hands-on learning to 
+                  spark curiosity, boost confidence, and foster a lifelong love of 
+                  learning. At Al-Xorazmiy, we don't just teach — we empower 
+                  students to lead, innovate, and succeed.
+                </p>
               </div>
             </div>
 
-            {/* Features */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                <VariableProximity
-                  label={t('whyChooseAlXorazmiy')}
-                  className="variable-proximity-demo"
-                  fromFontVariationSettings="'wght' 700, 'opsz' 18"
-                  toFontVariationSettings="'wght' 800, 'opsz' 30"
-                  containerRef={containerRef}
-                  radius={130}
-                  falloff="linear"
+            {/* Right Image */}
+            <div className="relative">
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                <img
+                  src={schoolImages[currentImageIndex]}
+                  alt="Al-Xorazmiy School"
+                  className="w-full h-[500px] object-cover transition-all duration-500 hover:scale-105 cursor-pointer"
+                  onMouseEnter={handleImageHover}
+                  onMouseLeave={handleImageHover}
                 />
-              </h3>
-              <div className="space-y-6">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-4 group">
-                    <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <feature.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                        <VariableProximity
-                          label={feature.title}
-                          className="variable-proximity-demo"
-                          fromFontVariationSettings="'wght' 600, 'opsz' 14"
-                          toFontVariationSettings="'wght' 700, 'opsz' 24"
-                          containerRef={containerRef}
-                          radius={100}
-                          falloff="exponential"
-                        />
-                      </h4>
-                      <div className="text-gray-600">
-                        <VariableProximity
-                          label={feature.description}
-                          className="variable-proximity-demo"
-                          fromFontVariationSettings="'wght' 400, 'opsz' 12"
-                          toFontVariationSettings="'wght' 500, 'opsz' 18"
-                          containerRef={containerRef}
-                          radius={90}
-                          falloff="exponential"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
+              
+              {/* Decorative Elements */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-teal-500 rounded-full opacity-20 animate-pulse"></div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-500 rounded-full opacity-10 animate-pulse delay-1000"></div>
             </div>
           </div>
         </div>
