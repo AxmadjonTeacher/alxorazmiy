@@ -111,8 +111,12 @@ export const Programs = () => {
           {/* Scrollable Container */}
           <div
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide px-12 py-4"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="flex gap-6 overflow-x-auto px-12 py-4"
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              WebkitScrollbar: { display: 'none' }
+            }}
           >
             {programs.map((program, index) => (
               <div
@@ -151,12 +155,6 @@ export const Programs = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   );
 };
