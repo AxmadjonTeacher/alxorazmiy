@@ -10,7 +10,8 @@ export const About = () => {
   const schoolImages = [
     '/lovable-uploads/a6930999-7f9a-4348-88f6-53ce61f177aa.png',
     '/lovable-uploads/bc9e402f-a892-4616-b433-6288585f8f0d.png',
-    '/lovable-uploads/0e3603ae-cf05-4ac5-9fc6-aa75fb63ede5.png'
+    '/lovable-uploads/0e3603ae-cf05-4ac5-9fc6-aa75fb63ede5.png',
+    '/lovable-uploads/3dff10ba-a599-446c-b627-23d041f5221d.png'
   ];
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
