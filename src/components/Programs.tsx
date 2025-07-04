@@ -1,23 +1,55 @@
-
-import React, { useRef } from 'react';
-import { BookOpen, Calculator, Monitor, Globe, Bot, Award, PenTool, Languages, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useRef, useEffect } from 'react';
+import { BookOpen, Calculator, Monitor, Globe, Bot, Award, PenTool, Languages } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const Programs = () => {
   const { t } = useLanguage();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -320, behavior: 'smooth' });
-    }
-  };
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 320, behavior: 'smooth' });
-    }
-  };
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5; // pixels per frame
+    const maxScroll = container.scrollWidth - container.clientWidth;
+
+    const animate = () => {
+      if (container) {
+        scrollPosition += scrollSpeed;
+        
+        // Reset to beginning when we reach the end
+        if (scrollPosition >= maxScroll) {
+          scrollPosition = 0;
+        }
+        
+        container.scrollLeft = scrollPosition;
+      }
+    };
+
+    const intervalId = setInterval(animate, 16); // ~60fps
+
+    // Pause animation on hover
+    const handleMouseEnter = () => clearInterval(intervalId);
+    const handleMouseLeave = () => {
+      const newIntervalId = setInterval(animate, 16);
+      return newIntervalId;
+    };
+
+    container.addEventListener('mouseenter', handleMouseEnter);
+    container.addEventListener('mouseleave', () => {
+      clearInterval(intervalId);
+      const newIntervalId = setInterval(animate, 16);
+    });
+
+    return () => {
+      clearInterval(intervalId);
+      if (container) {
+        container.removeEventListener('mouseenter', handleMouseEnter);
+        container.removeEventListener('mouseleave', handleMouseLeave);
+      }
+    };
+  }, []);
 
   const programs = [
     {
@@ -91,31 +123,13 @@ export const Programs = () => {
         </div>
 
         <div className="relative">
-          {/* Navigation Arrows */}
-          <button
-            onClick={scrollLeft}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
-          </button>
-          
-          <button
-            onClick={scrollRight}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-            aria-label="Scroll right"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
-          </button>
-
           {/* Scrollable Container */}
           <div
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto px-12 py-4"
+            className="flex gap-6 overflow-x-auto py-4"
             style={{ 
               scrollbarWidth: 'none', 
-              msOverflowStyle: 'none',
-              WebkitScrollbar: { display: 'none' }
+              msOverflowStyle: 'none'
             }}
           >
             {programs.map((program, index) => (
@@ -155,6 +169,12 @@ export const Programs = () => {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 };
