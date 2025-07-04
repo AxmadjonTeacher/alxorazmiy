@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -60,9 +61,9 @@ export const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            <span className="block animate-fade-in">{t('empoweringFutureLeaders').split(' ')[0]}</span>
-            <span className="block bg-gradient-to-r from-[#06b6d4] to-[#10b981] bg-clip-text text-transparent animate-fade-in" style={{ animationDelay: '200ms' }}>
-              {t('empoweringFutureLeaders').split(' ').slice(1).join(' ')}
+            <span className="block animate-fade-in">Shaping Tomorrow's</span>
+            <span className="bg-gradient-to-r from-[#06b6d4] to-[#10b981] bg-clip-text text-transparent animate-fade-in" style={{ animationDelay: '200ms' }}>
+              Leaders Today
             </span>
           </h1>
 

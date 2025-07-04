@@ -60,7 +60,7 @@ export const Programs = () => {
       title: t('ieltsPreparation'),
       description: t('ieltsDescription'),
       features: [t('testStrategies'), t('practiceTests'), t('scoreImprovement')],
-      bgImage: 'https://images.unsplash.com/photo-1606686554842-488011946fd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80'
+      bgImage: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=6000&q=80'
     },
     {
       icon: PenTool,
@@ -90,8 +90,8 @@ export const Programs = () => {
           </p>
         </div>
 
-        {/* Navigation Arrows at Top */}
-        <div className="flex justify-center gap-4 mb-8">
+        {/* Navigation Arrows at Right Corner */}
+        <div className="flex justify-end gap-4 mb-8 pr-4">
           <button
             onClick={scrollLeft}
             className="bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
