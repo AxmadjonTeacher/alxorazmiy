@@ -13,25 +13,31 @@ const Map = ({ isOpen, onClose }: MapProps) => {
   useEffect(() => {
     if (!isOpen || !mapContainer.current) return;
 
+    // Check if Google Maps is loaded
+    if (typeof window.google === 'undefined') {
+      console.log('Google Maps API not loaded yet');
+      return;
+    }
+
     // School address coordinates (approximate location in Namangan)
     const schoolLocation = { lat: 40.9983, lng: 71.6726 };
     
     // Create the map
-    const map = new google.maps.Map(mapContainer.current, {
+    const map = new window.google.maps.Map(mapContainer.current, {
       zoom: 16,
       center: schoolLocation,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeId: window.google.maps.MapTypeId.ROADMAP,
     });
 
     // Add marker for the school
-    const marker = new google.maps.Marker({
+    const marker = new window.google.maps.Marker({
       position: schoolLocation,
       map: map,
       title: 'Al-Khorazmiy International School',
     });
 
     // Add info window
-    const infoWindow = new google.maps.InfoWindow({
+    const infoWindow = new window.google.maps.InfoWindow({
       content: `
         <div style="padding: 8px;">
           <h3 style="margin: 0 0 8px 0; font-weight: bold;">Al-Khorazmiy International School</h3>
@@ -80,13 +86,5 @@ const Map = ({ isOpen, onClose }: MapProps) => {
     </div>
   );
 };
-
-// Hide placeholder when Google Maps loads
-if (typeof google !== 'undefined') {
-  const placeholder = document.getElementById('map-placeholder');
-  if (placeholder) {
-    placeholder.style.display = 'none';
-  }
-}
 
 export default Map;
