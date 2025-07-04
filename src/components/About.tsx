@@ -1,5 +1,6 @@
 
 import React, { useRef, useState } from 'react';
+import { Star } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const About = () => {
@@ -29,11 +30,13 @@ export const About = () => {
             <div className="space-y-8">
               <div>
                 <div className="inline-flex items-center px-4 py-2 rounded-full bg-teal-100 text-teal-800 text-sm font-medium mb-6">
+                  <Star className="w-4 h-4 mr-2" />
                   {t('aboutUs')}
                 </div>
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                  <span className="block">Al-Xorazmiy</span>
-                  <span className="block text-teal-600">Private School</span>
+                  <span className="block">Shaping Tomorrow's</span>
+                  <span className="block text-teal-600">Leaders</span>
+                  <span className="block">Today</span>
                 </h2>
               </div>
               

@@ -60,7 +60,7 @@ export const Programs = () => {
       title: t('ieltsPreparation'),
       description: t('ieltsDescription'),
       features: [t('testStrategies'), t('practiceTests'), t('scoreImprovement')],
-      bgImage: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+      bgImage: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=6000&q=80'
     },
     {
       icon: PenTool,
