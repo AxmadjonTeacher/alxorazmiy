@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,7 +5,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const backgroundImages = [
   '/lovable-uploads/9600c623-e307-4c5a-9f9a-81ef2bd43e62.png',
-  '/lovable-uploads/f1f3b3be-65d9-4bdc-8b2d-dcb428a6f986.png',
   '/lovable-uploads/c68acd1b-8451-4597-9050-fbce51bbceba.png'
 ];
 
