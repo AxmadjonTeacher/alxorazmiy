@@ -1,11 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Map from './Map';
 
 export const Contact = () => {
   const { t } = useLanguage();
+  const [isMapOpen, setIsMapOpen] = useState(false);
 
   const contactInfo = [
     {
@@ -24,7 +26,7 @@ export const Contact = () => {
       icon: MapPin,
       title: t('address'),
       details: 'Namangan sh., Lola dahasi, Janubiy aylanma yo\'li, 17A',
-      action: '#'
+      action: 'map'
     },
     {
       icon: Clock,
@@ -33,6 +35,14 @@ export const Contact = () => {
       action: '#'
     }
   ];
+
+  const handleContactAction = (action: string) => {
+    if (action === 'map') {
+      setIsMapOpen(true);
+    } else if (action.startsWith('mailto:') || action.startsWith('tel:')) {
+      window.location.href = action;
+    }
+  };
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-teal-50 to-blue-50">
@@ -52,7 +62,8 @@ export const Contact = () => {
           {contactInfo.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100"
+              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 cursor-pointer"
+              onClick={() => handleContactAction(item.action)}
             >
               <div className="flex flex-col items-center text-center">
                 <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4">
@@ -60,13 +71,10 @@ export const Contact = () => {
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{item.details}</p>
-                {(item.action.startsWith('mailto:') || item.action.startsWith('tel:')) && (
-                  <a
-                    href={item.action}
-                    className="mt-3 text-teal-600 hover:text-teal-700 font-medium text-sm transition-colors"
-                  >
-                    {t('contactNow')}
-                  </a>
+                {(item.action.startsWith('mailto:') || item.action.startsWith('tel:') || item.action === 'map') && (
+                  <span className="mt-3 text-teal-600 hover:text-teal-700 font-medium text-sm transition-colors">
+                    {item.action === 'map' ? t('viewOnMap') : t('contactNow')}
+                  </span>
                 )}
               </div>
             </div>
@@ -104,6 +112,8 @@ export const Contact = () => {
           </div>
         </div>
       </div>
+
+      <Map isOpen={isMapOpen} onClose={() => setIsMapOpen(false)} />
     </section>
   );
 };
