@@ -21,57 +21,42 @@ export const Excellence = () => {
           </h2>
           <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Our commitment to providing high-quality education with modern teaching 
-            methods and innovative approaches.
+            methods and innovative approaches ensures every student reaches their full potential.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
-          {/* Left side - Image */}
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img 
-                src="/lovable-uploads/06f96def-e1db-44c2-bc33-8ce73fbf58b4.png"
-                alt="Students in classroom"
-                className="w-full h-[400px] object-cover"
-              />
-              {/* Decorative border with teal accent */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-teal-400 to-blue-500 rounded-3xl opacity-30 -z-10"></div>
+        {/* 4 Feature Cards - Horizontal Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl border border-blue-100 hover-lift">
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl mx-auto mb-4">
+              <BookOpen className="w-8 h-8 text-white" />
             </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Diverse</h3>
+            <p className="text-gray-600 text-sm">Academic Subjects</p>
           </div>
 
-          {/* Right side - Feature Cards in vertical layout */}
-          <div className="space-y-6">
-            <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl border border-blue-100">
-              <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-3xl mx-auto mb-6">
-                <BookOpen className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-3">Diverse</h3>
-              <p className="text-gray-600">Academic Subjects</p>
+          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl border border-blue-100 hover-lift">
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl mx-auto mb-4">
+              <Users className="w-8 h-8 text-white" />
             </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Expert</h3>
+            <p className="text-gray-600 text-sm">Teaching Staff</p>
+          </div>
 
-            <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl border border-blue-100">
-              <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-3xl mx-auto mb-6">
-                <Trophy className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-3">Modern</h3>
-              <p className="text-gray-600">Facilities</p>
+          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl border border-blue-100 hover-lift">
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl mx-auto mb-4">
+              <Trophy className="w-8 h-8 text-white" />
             </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Modern</h3>
+            <p className="text-gray-600 text-sm">Facilities</p>
+          </div>
 
-            <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl border border-blue-100">
-              <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-3xl mx-auto mb-6">
-                <Users className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-3">Expert</h3>
-              <p className="text-gray-600">Teaching Staff</p>
+          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl border border-blue-100 hover-lift">
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl mx-auto mb-4">
+              <TrendingUp className="w-8 h-8 text-white" />
             </div>
-
-            <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl border border-blue-100">
-              <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-3xl mx-auto mb-6">
-                <TrendingUp className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-3">Innovative</h3>
-              <p className="text-gray-600">Approach</p>
-            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Innovative</h3>
+            <p className="text-gray-600 text-sm">Approach</p>
           </div>
         </div>
 
@@ -80,11 +65,9 @@ export const Excellence = () => {
           <h3 className="text-4xl font-bold text-gray-900 mb-6 text-center">
             Join a Vibrant Community
           </h3>
-          <p className="text-gray-600 mb-8 leading-relaxed text-center max-w-4xl mx-auto text-lg">
-            Beyond academics, we foster a supportive and inclusive community where every student feels valued. 
-            We encourage collaboration, creativity, and critical thinking, building a foundation for lifelong 
-            friendships and success. Our diverse student body brings unique perspectives, enriching the learning 
-            experience for everyone.
+          <p className="text-gray-600 mb-8 leading-relaxed text-center max-w-3xl mx-auto text-lg">
+            Beyond academics, we foster a supportive community where every student feels valued. 
+            We encourage collaboration and creativity, building foundations for lifelong success.
           </p>
           <div className="text-center">
             <Button 
