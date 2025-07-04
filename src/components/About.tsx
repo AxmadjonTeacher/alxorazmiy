@@ -34,26 +34,16 @@ export const About = () => {
                   {t('aboutUs')}
                 </div>
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                  <span className="block">Shaping Tomorrow's</span>
-                  <span className="block text-teal-600">Leaders</span>
-                  <span className="block">Today</span>
+                  {t('shapingTomorrowsLeaders')}
                 </h2>
               </div>
               
               <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  Al-Xorazmiy School is a forward-thinking private institution 
-                  dedicated to nurturing young learners through a strong 
-                  foundation in English, Mathematics, Information Technology, 
-                  and Robotics. Our mission is to equip students with the skills 
-                  and mindset needed to thrive in a rapidly changing, 
-                  technology-driven world.
+                  {t('aboutDescription1')}
                 </p>
                 <p>
-                  We combine academic excellence with hands-on learning to 
-                  spark curiosity, boost confidence, and foster a lifelong love of 
-                  learning. At Al-Xorazmiy, we don't just teach — we empower 
-                  students to lead, innovate, and succeed.
+                  {t('aboutDescription2')}
                 </p>
               </div>
             </div>
