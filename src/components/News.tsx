@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Calendar, Clock, ChevronRight, Trophy, Plane, Users, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -138,7 +139,7 @@ export const News = () => {
       excerpt: 'A historic Presidential Election was held at our school yesterday! This initiative was organized to improve education and upbringing quality, and to educate our youth as active, initiative-taking, responsible leaders.',
       author: 'Al-Xorazmiy Staff',
       image: '/lovable-uploads/afaefccf-8ec8-4373-af5d-1749cb22647e.png',
-      detailedContent: `Prezident saylovi — yosh avlodni liderlik sari ilk qadamidir!
+      detailedContent: `Prezident saylovi — yosh avlodno liderlik sari ilk qadamidir!
 
 Kuni kecha maktabimizda muhim va tarixiy voqelik — Prezident saylovi bo'lib o'tdi! Bu tashabbus ta'lim va tarbiya sifatini yana-da yaxshilash, yoshlarimizni faol, tashabbuskor, mas'uliyatli rahbarlar sifatida tarbiyalash maqsadida tashkil etildi.
 
@@ -163,6 +164,7 @@ Maktabimiz o'quvchilari ta'lim va madaniy rivojlanish dasturi doirasida Sulton U
 
 O'quvchilar bu ziyorat davomida tarixiy ma'lumotlar bilan tanishdilar va o'z milliy merosimizni chuqurroq tushunishga erishdilar.`,
       gallery: [
+        '/lovable-uploads/1bed29f6-e28d-45d2-b18f-9abe0b6db9b5.png',
         '/lovable-uploads/c5d7f629-3604-469f-948c-c2fb48540b17.png',
         '/lovable-uploads/c140f20c-68dc-4a34-8af5-433423b47752.png'
       ]
@@ -178,9 +180,7 @@ O'quvchilar bu ziyorat davomida tarixiy ma'lumotlar bilan tanishdilar va o'z mil
 Bu imtihonlarda qanchalik baland ball to'plasalar keyingi GRANT uchun bo'lib o'tadigan imtihonda o'quvchilarning foydalariga ishlaydi.
 
 Haftalik testlar o'quvchilarning bilim darajasini muntazam baholash va ularning kelajakdagi grant imtihonlariga tayyorgarlik ko'rish uchun muhim ahamiyatga ega.`,
-      gallery: [
-        '/lovable-uploads/a30fee03-262c-479c-b560-a952c02e2cb3.png'
-      ]
+      gallery: []
     },
     {
       category: 'International Competition',
@@ -199,7 +199,6 @@ O'quvchilarimiz quyidagi fanlari bo'yicha ishtirok etadilar:
       gallery: [
         '/lovable-uploads/9eef5cdd-fb8f-4120-9a39-841773e20f82.png',
         '/lovable-uploads/d098917c-d00a-45a8-aff5-195d4dbaa4c1.png',
-        '/lovable-uploads/075db841-6392-4e41-94a6-76db1d3f78cf.png',
         '/lovable-uploads/4f6ddb2a-f13a-4c49-be5f-ee4c3eaec40a.png'
       ],
       contact: ['+998692100007', '+998943030707']
@@ -217,7 +216,6 @@ Barcha sportchi o'quvchilarimizga omad tilab qolamiz!🤝
 Bu olimpiada o'quvchilarimizning sport sohasidagi iqtidorlarini namoyon etish va raqobatbardosh muhitda o'z kuchlarini sinab ko'rish imkonini beradi.`,
       gallery: [
         '/lovable-uploads/8355c927-3d54-4804-8330-ff4c6ccff7ce.png',
-        '/lovable-uploads/c3acbd91-5b95-4af4-80df-be462ea339cf.png',
         '/lovable-uploads/bf12f802-322d-46ff-a52a-399933cbec86.png',
         '/lovable-uploads/34956b97-8b9c-4b29-9620-3403c9395ec2.png'
       ]
@@ -236,7 +234,12 @@ AL-XORAZMIY maktabining iqtidorli o'quvchilari TIMO musobaqasining saralash bosq
 
 Ularning bilimga bo'lgan ishtiyoqi, mehnati va sabr-toqati yuksak natijalarni taqdim etdi. Ustozlarga ham chuqur minnatdorchilik bildiramiz🤝
 
-Bu matematika olimpiadasi Turkiy xalqlar o'rtasida o'tkaziladigan eng nufuzli musobaqalardan biri hisoblanadi.`
+Bu matematika olimpiadasi Turkiy xalqlar o'rtasida o'tkaziladigan eng nufuzli musobaqalardan biri hisoblanadi.`,
+      gallery: [
+        '/lovable-uploads/cc48a578-353d-4c3f-b2a1-2fdcaeaaa6d1.png',
+        '/lovable-uploads/3e46e694-7aea-4e4c-9df7-a8b13eef56c2.png',
+        '/lovable-uploads/f00ac89a-9056-49d7-94d0-e10e3f0f9827.png'
+      ]
     }
   ];
 
