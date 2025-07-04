@@ -1,3 +1,4 @@
+
 import React, { useRef } from 'react';
 import { BookOpen, Calculator, Monitor, Globe, Bot, Award, PenTool, Languages, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -73,14 +74,14 @@ export const Programs = () => {
       title: t('arabic'),
       description: t('arabicDescription'),
       features: [t('languageBasics'), t('readingWriting'), t('culturalContext')],
-      bgImage: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+      bgImage: 'https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2834&q=80'
     }
   ];
 
   return (
     <section id="programs" className="py-20 bg-gradient-to-br from-teal-50 to-blue-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             {t('ourAcademicPrograms')}
           </h2>
@@ -89,11 +90,11 @@ export const Programs = () => {
           </p>
         </div>
 
-        <div className="relative">
-          {/* Navigation Arrows */}
+        {/* Navigation Arrows at Top */}
+        <div className="flex justify-center gap-4 mb-8">
           <button
             onClick={scrollLeft}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+            className="bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
             aria-label="Scroll left"
           >
             <ChevronLeft className="w-6 h-6 text-gray-600" />
@@ -101,16 +102,18 @@ export const Programs = () => {
           
           <button
             onClick={scrollRight}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+            className="bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
             aria-label="Scroll right"
           >
             <ChevronRight className="w-6 h-6 text-gray-600" />
           </button>
+        </div>
 
+        <div className="relative">
           {/* Scrollable Container */}
           <div
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto px-12 py-4"
+            className="flex gap-6 overflow-x-auto px-4 py-4"
             style={{ 
               scrollbarWidth: 'none', 
               msOverflowStyle: 'none'
@@ -155,7 +158,7 @@ export const Programs = () => {
       </div>
 
       <style>{`
-        .scrollbar-hide::-webkit-scrollbar {
+        div[style*="scrollbarWidth"]::-webkit-scrollbar {
           display: none;
         }
       `}</style>
