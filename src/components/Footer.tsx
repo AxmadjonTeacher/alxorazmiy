@@ -113,8 +113,8 @@ export const Footer = () => {
                 <MapPin className="w-5 h-5 text-teal-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">
-                    Namangan shahar, Namangan ko'chasi,<br />
-                    17A Uy<br />
+                    Namangan sh., Lola dahasi,<br />
+                    Janubiy aylanma yo'li, 17A<br />
                     Uzbekistan
                   </p>
                 </div>

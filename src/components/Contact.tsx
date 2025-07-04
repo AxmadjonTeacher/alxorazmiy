@@ -23,7 +23,7 @@ export const Contact = () => {
     {
       icon: MapPin,
       title: t('address'),
-      details: 'Namangan shahar, Namangan ko\'chasi, 17A Uy',
+      details: 'Namangan sh., Lola dahasi, Janubiy aylanma yo\'li, 17A',
       action: '#'
     },
     {
