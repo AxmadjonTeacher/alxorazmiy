@@ -99,7 +99,9 @@ const translations = {
     arabicDescription: 'Arabic language studies with focus on reading, writing, and cultural appreciation.',
     languageBasics: 'Language Basics',
     readingWriting: 'Reading & Writing',
-    culturalContext: 'Cultural Context'
+    culturalContext: 'Cultural Context',
+    schoolName: 'Al Xorazmiy School',
+    innovationInLearning: 'Innovation In Learning'
   },
   UZ: {
     home: 'Bosh sahifa',
@@ -189,7 +191,9 @@ const translations = {
     arabicDescription: 'O\'qish, yozish va madaniy qadriyatlarga e\'tibor qaratgan holda arab tili o\'rganish.',
     languageBasics: 'Til Asoslari',
     readingWriting: 'O\'qish va Yozish',
-    culturalContext: 'Madaniy Kontekst'
+    culturalContext: 'Madaniy Kontekst',
+    schoolName: 'Al Xorazmiy Maktabi',
+    innovationInLearning: 'Ta\'limda Innovatsiya'
   },
   RU: {
     home: 'Главная',
@@ -279,7 +283,9 @@ const translations = {
     arabicDescription: 'Изучение арабского языка с акцентом на чтение, письмо и культурное понимание.',
     languageBasics: 'Основы Языка',
     readingWriting: 'Чтение и Письмо',
-    culturalContext: 'Культурный Контекст'
+    culturalContext: 'Культурный Контекст',
+    schoolName: 'Школа Al Xorazmiy',
+    innovationInLearning: 'Инновации В Обучении'
   }
 };
 
