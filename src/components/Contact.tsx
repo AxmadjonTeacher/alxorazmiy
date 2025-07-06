@@ -22,7 +22,7 @@ export const Contact = () => {
   };
 
   const handleMapClick = () => {
-    window.open('https://maps.google.com/?q=Namangan,Lola+dahasi,Janubiy+aylanma+yo\'li,17A', '_blank');
+    window.open('https://maps.google.com/?q=XPC5%2BQ4V%2C+Namangan%2C+Namangan+Region%2C+Uzbekistan', '_blank');
   };
 
   return (
@@ -72,8 +72,8 @@ export const Contact = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">{t('address')}</h3>
                   <p className="text-gray-600">
-                    Namangan sh., Lola dahasi,<br />
-                    Janubiy aylanma yo'li, 17A<br />
+                    XPC5+Q4V, Namangan,<br />
+                    Namangan Region,<br />
                     Uzbekistan
                   </p>
                 </div>
