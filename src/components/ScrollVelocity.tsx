@@ -19,11 +19,12 @@ export const ScrollVelocity = () => {
     let position2 = 0;
 
     const animate = () => {
-      position1 -= 0.5;
-      position2 += 0.3;
+      position1 -= 1.5; // Increased speed from 0.5 to 1.5
+      position2 += 1.2; // Increased speed from 0.3 to 1.2
 
-      scroller1.style.transform = `translateX(${position1}px)`;
-      scroller2.style.transform = `translateX(${position2}px)`;
+      // Use transform3d for hardware acceleration to prevent blurriness
+      scroller1.style.transform = `translate3d(${position1}px, 0, 0)`;
+      scroller2.style.transform = `translate3d(${position2}px, 0, 0)`;
 
       if (position1 <= -scroller1.scrollWidth / 2) {
         position1 = 0;

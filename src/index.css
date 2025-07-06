@@ -176,6 +176,12 @@ All colors MUST be HSL.
   font-weight: bold;
   letter-spacing: -0.02em;
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+  /* Add hardware acceleration and improve text rendering */
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
 }
 
 .scroll-velocity-scroller span {
