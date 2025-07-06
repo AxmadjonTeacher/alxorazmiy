@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, Instagram, Youtube } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const Footer = () => {
+  const { t } = useLanguage();
+
   const quickLinks = [
     { name: 'About Us', href: '#about' },
     { name: 'Programs', href: '#programs' },
@@ -51,7 +54,7 @@ export const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              Empowering students to achieve excellence through innovative education and hands-on learning experiences.
+              {t('footerDescription')}
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (

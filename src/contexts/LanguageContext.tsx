@@ -37,6 +37,8 @@ const translations = {
     sendEmail: 'Send Email',
     callNow: 'Call Now',
     viewOnMap: 'View on Map',
+    telegram: 'Telegram',
+    footerDescription: 'Empowering students to achieve excellence through innovative education and hands-on learning experiences.',
     // Hero section translations
     excellenceInEducation: 'Excellence in Education',
     shapingTomorrowsLeadersToday: 'Shaping Tomorrow\'s Leaders Today',
@@ -125,6 +127,8 @@ const translations = {
     sendEmail: 'Email yuborish',
     callNow: 'Hoziroq qo\'ng\'iroq qiling',
     viewOnMap: 'Xaritada ko\'rish',
+    telegram: 'Telegram',
+    footerDescription: 'Al Xorazmiy maktabi o\'quvchilarni innovatsion ta\'lim va amaliy tajriba orqali yuksak natijalarga erishishga ilhomlantiradi',
     // Hero section translations
     excellenceInEducation: 'Ta\'limda mukammallik',
     shapingTomorrowsLeadersToday: 'Ertangi yetakchilar uchun bugun harakatdamiz',
@@ -213,6 +217,8 @@ const translations = {
     sendEmail: 'Отправить email',
     callNow: 'Позвонить сейчас',
     viewOnMap: 'Посмотреть на карте',
+    telegram: 'Telegram',
+    footerDescription: 'Школа Al Xorazmiy вдохновляет учеников достигать высоких результатов через инновационное образование и практический опыт',
     // Hero section translations
     excellenceInEducation: 'Совершенство в образовании',
     shapingTomorrowsLeadersToday: 'Формируем лидеров будущего уже сегодня',
