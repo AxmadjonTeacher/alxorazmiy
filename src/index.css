@@ -161,7 +161,7 @@ All colors MUST be HSL.
   100% { background-position: 200% 0; }
 }
 
-/* Scroll Velocity Animation Styles */
+/* Scroll Velocity Animation Styles - Optimized for Text Clarity */
 .scroll-velocity-parallax {
   position: relative;
   overflow: hidden;
@@ -175,29 +175,44 @@ All colors MUST be HSL.
   font-size: 2.5rem;
   font-weight: 800;
   letter-spacing: -0.025em;
-  line-height: 1.1;
-  /* Optimized for crisp text rendering */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  /* Remove hardware acceleration that was causing blur */
-  transform: translateZ(0);
+  line-height: 1.2;
+  
+  /* Optimized for maximum text clarity */
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: geometricPrecision;
+  
+  /* Remove hardware acceleration and properties that cause blur */
+  transform: none;
+  will-change: auto;
+  backface-visibility: visible;
+  
+  /* Ensure crisp edges */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  
+  /* Prevent text selection and improve performance */
+  user-select: none;
+  pointer-events: none;
 }
 
 .scroll-velocity-scroller span {
   flex-shrink: 0;
   display: inline-block;
+  /* Ensure each span renders on pixel boundaries */
+  transform: translateZ(0);
 }
 
 @media (min-width: 768px) {
   .scroll-velocity-scroller {
     font-size: 4rem;
-    line-height: 1;
+    line-height: 1.1;
   }
 }
 
 @media (min-width: 1024px) {
   .scroll-velocity-scroller {
     font-size: 5rem;
+    line-height: 1;
   }
 }

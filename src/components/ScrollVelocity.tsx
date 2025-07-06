@@ -18,17 +18,23 @@ export const ScrollVelocity = () => {
     let position2 = 0;
 
     const animate = () => {
-      position1 -= 2; // Slightly faster for smoother motion
-      position2 += 1.5; // Adjusted speed
+      // Use whole pixel increments only to avoid blur
+      position1 -= 2;
+      position2 += 2;
 
-      // Use transform with translateX for better clarity
-      scroller1.style.transform = `translateX(${position1}px)`;
-      scroller2.style.transform = `translateX(${position2}px)`;
+      // Round positions to whole pixels to ensure crisp rendering
+      const roundedPos1 = Math.round(position1);
+      const roundedPos2 = Math.round(position2);
 
-      if (position1 <= -scroller1.scrollWidth / 2) {
+      // Use simple translateX without hardware acceleration
+      scroller1.style.transform = `translateX(${roundedPos1}px)`;
+      scroller2.style.transform = `translateX(${roundedPos2}px)`;
+
+      // Reset positions for seamless looping
+      if (roundedPos1 <= -scroller1.scrollWidth / 2) {
         position1 = 0;
       }
-      if (position2 >= 0) {
+      if (roundedPos2 >= 0) {
         position2 = -scroller2.scrollWidth / 2;
       }
 
@@ -47,7 +53,7 @@ export const ScrollVelocity = () => {
       <div className="scroll-velocity-parallax">
         {/* First scrolling layer */}
         <div className="scroll-velocity-scroller text-teal-600/40 mb-6" ref={scrollerRef1}>
-          {Array.from({ length: 8 }, (_, i) => (
+          {Array.from({ length: 12 }, (_, i) => (
             <span key={i} className="mr-12">
               {t('schoolName')}
             </span>
@@ -56,7 +62,7 @@ export const ScrollVelocity = () => {
         
         {/* Second scrolling layer */}
         <div className="scroll-velocity-scroller text-blue-600/40" ref={scrollerRef2}>
-          {Array.from({ length: 8 }, (_, i) => (
+          {Array.from({ length: 12 }, (_, i) => (
             <span key={i} className="mr-12">
               {t('innovationInLearning')}
             </span>
