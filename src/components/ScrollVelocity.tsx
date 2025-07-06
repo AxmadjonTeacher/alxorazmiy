@@ -45,9 +45,9 @@ export const ScrollVelocity = () => {
 
   return (
     <section className="py-16 bg-gradient-to-br from-teal-50 to-blue-50 overflow-hidden">
-      <div className="parallax">
+      <div className="scroll-velocity-parallax">
         {/* First scrolling layer */}
-        <div className="scroller text-teal-600/30 mb-4" ref={scrollerRef1}>
+        <div className="scroll-velocity-scroller text-teal-600/30 mb-4" ref={scrollerRef1}>
           {Array.from({ length: 10 }, (_, i) => (
             <span key={i} className="mr-8">
               {t('schoolName')}
@@ -56,7 +56,7 @@ export const ScrollVelocity = () => {
         </div>
         
         {/* Second scrolling layer */}
-        <div className="scroller text-blue-600/30" ref={scrollerRef2}>
+        <div className="scroll-velocity-scroller text-blue-600/30" ref={scrollerRef2}>
           {Array.from({ length: 10 }, (_, i) => (
             <span key={i} className="mr-8">
               {t('innovationInLearning')}
@@ -64,35 +64,6 @@ export const ScrollVelocity = () => {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .parallax {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .scroller {
-          display: flex;
-          white-space: nowrap;
-          text-align: center;
-          font-family: sans-serif;
-          font-size: 2.25rem;
-          font-weight: bold;
-          letter-spacing: -0.02em;
-          filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
-        }
-
-        .scroller span {
-          flex-shrink: 0;
-        }
-
-        @media (min-width: 768px) {
-          .scroller {
-            font-size: 5rem;
-            line-height: 5rem;
-          }
-        }
-      `}</style>
     </section>
   );
 };
