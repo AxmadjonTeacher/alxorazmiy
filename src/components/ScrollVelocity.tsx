@@ -13,18 +13,17 @@ export const ScrollVelocity = () => {
 
     if (!scroller1 || !scroller2) return;
 
-    let animationId1: number;
-    let animationId2: number;
+    let animationId: number;
     let position1 = 0;
     let position2 = 0;
 
     const animate = () => {
-      position1 -= 1.5; // Increased speed from 0.5 to 1.5
-      position2 += 1.2; // Increased speed from 0.3 to 1.2
+      position1 -= 2; // Slightly faster for smoother motion
+      position2 += 1.5; // Adjusted speed
 
-      // Use transform3d for hardware acceleration to prevent blurriness
-      scroller1.style.transform = `translate3d(${position1}px, 0, 0)`;
-      scroller2.style.transform = `translate3d(${position2}px, 0, 0)`;
+      // Use transform with translateX for better clarity
+      scroller1.style.transform = `translateX(${position1}px)`;
+      scroller2.style.transform = `translateX(${position2}px)`;
 
       if (position1 <= -scroller1.scrollWidth / 2) {
         position1 = 0;
@@ -33,14 +32,13 @@ export const ScrollVelocity = () => {
         position2 = -scroller2.scrollWidth / 2;
       }
 
-      animationId1 = requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
     };
 
     animate();
 
     return () => {
-      if (animationId1) cancelAnimationFrame(animationId1);
-      if (animationId2) cancelAnimationFrame(animationId2);
+      if (animationId) cancelAnimationFrame(animationId);
     };
   }, []);
 
@@ -48,18 +46,18 @@ export const ScrollVelocity = () => {
     <section className="py-16 bg-gradient-to-br from-teal-50 to-blue-50 overflow-hidden">
       <div className="scroll-velocity-parallax">
         {/* First scrolling layer */}
-        <div className="scroll-velocity-scroller text-teal-600/30 mb-4" ref={scrollerRef1}>
-          {Array.from({ length: 10 }, (_, i) => (
-            <span key={i} className="mr-8">
+        <div className="scroll-velocity-scroller text-teal-600/40 mb-6" ref={scrollerRef1}>
+          {Array.from({ length: 8 }, (_, i) => (
+            <span key={i} className="mr-12">
               {t('schoolName')}
             </span>
           ))}
         </div>
         
         {/* Second scrolling layer */}
-        <div className="scroll-velocity-scroller text-blue-600/30" ref={scrollerRef2}>
-          {Array.from({ length: 10 }, (_, i) => (
-            <span key={i} className="mr-8">
+        <div className="scroll-velocity-scroller text-blue-600/40" ref={scrollerRef2}>
+          {Array.from({ length: 8 }, (_, i) => (
+            <span key={i} className="mr-12">
               {t('innovationInLearning')}
             </span>
           ))}
