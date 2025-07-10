@@ -117,15 +117,12 @@ export const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <div className="relative p-[2px] rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 animate-spin-slow">
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 blur-sm opacity-75 animate-spin-slow"></div>
-              <Button 
-                onClick={handleApplyNow}
-                className="relative bg-white text-blue-600 hover:bg-gray-50 px-6 py-2 rounded-[6px] font-medium transition-all duration-300 hover:scale-105 shadow-lg"
-              >
-                {t('applyNow')}
-              </Button>
-            </div>
+            <Button 
+              onClick={handleApplyNow}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
+            >
+              {t('applyNow')}
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -177,18 +174,15 @@ export const Header = () => {
               </div>
               
               <div className="pt-4 border-t border-gray-100">
-                <div className="relative p-[2px] rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 animate-spin-slow">
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 blur-sm opacity-75 animate-spin-slow"></div>
-                  <Button 
-                    onClick={() => {
-                      handleApplyNow();
-                      setIsMenuOpen(false);
-                    }}
-                    className="relative w-full bg-white text-blue-600 py-3 rounded-[6px] font-medium"
-                  >
-                    {t('applyNow')}
-                  </Button>
-                </div>
+                <Button 
+                  onClick={() => {
+                    handleApplyNow();
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium"
+                >
+                  {t('applyNow')}
+                </Button>
               </div>
             </nav>
           </div>
