@@ -117,12 +117,11 @@ export const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <div className="relative">
-              <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 opacity-75 blur animate-pulse"></div>
-              <div className="absolute -inset-2 rounded-lg bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 opacity-30 blur-md animate-pulse animation-delay-150"></div>
+            <div className="relative p-[2px] rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 animate-spin-slow">
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 blur-sm opacity-75 animate-spin-slow"></div>
               <Button 
                 onClick={handleApplyNow}
-                className="relative bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg border border-blue-500"
+                className="relative bg-white text-blue-600 hover:bg-gray-50 px-6 py-2 rounded-[6px] font-medium transition-all duration-300 hover:scale-105 shadow-lg"
               >
                 {t('applyNow')}
               </Button>
@@ -178,15 +177,14 @@ export const Header = () => {
               </div>
               
               <div className="pt-4 border-t border-gray-100">
-                <div className="relative">
-                  <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 opacity-75 blur animate-pulse"></div>
-                  <div className="absolute -inset-2 rounded-lg bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 opacity-30 blur-md animate-pulse animation-delay-150"></div>
+                <div className="relative p-[2px] rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 animate-spin-slow">
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 blur-sm opacity-75 animate-spin-slow"></div>
                   <Button 
                     onClick={() => {
                       handleApplyNow();
                       setIsMenuOpen(false);
                     }}
-                    className="relative w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium border border-blue-500"
+                    className="relative w-full bg-white text-blue-600 py-3 rounded-[6px] font-medium"
                   >
                     {t('applyNow')}
                   </Button>

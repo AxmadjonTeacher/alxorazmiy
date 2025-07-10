@@ -73,14 +73,18 @@ export const Hero = () => {
 
           {/* Contact Us Button */}
           <div className="flex justify-center mb-12 animate-fade-in" style={{ animationDelay: '600ms' }}>
-            <Button 
-              size="lg" 
-              onClick={handleContactClick}
-              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold group transition-all duration-300 hover:scale-105"
-            >
-              <Phone className="mr-2 w-5 h-5" />
-              {t('contactUs')}
-            </Button>
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 via-blue-500 to-cyan-500 rounded-lg blur opacity-75 group-hover:opacity-100 animate-gradient-xy"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-pink-400 via-blue-400 to-cyan-400 rounded-lg blur-md opacity-30 group-hover:opacity-50 animate-gradient-xy animation-delay-300"></div>
+              <Button 
+                size="lg" 
+                onClick={handleContactClick}
+                className="relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 border border-white/20"
+              >
+                <Phone className="mr-2 w-5 h-5" />
+                {t('contactUs')}
+              </Button>
+            </div>
           </div>
 
           {/* Quick Stats */}
