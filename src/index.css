@@ -109,34 +109,6 @@ All colors MUST be HSL.
   100% { background-position: 200% 0; }
 }
 
-@keyframes shimmer-ring {
-  0% { 
-    transform: rotate(0deg);
-    opacity: 0.8;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% { 
-    transform: rotate(360deg);
-    opacity: 0.8;
-  }
-}
-
-@keyframes shimmer-ring-delayed {
-  0% { 
-    transform: rotate(180deg);
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% { 
-    transform: rotate(540deg);
-    opacity: 0.6;
-  }
-}
-
 /* Utility classes for components */
 .float-animation {
   animation: float 3s ease-in-out infinite;
@@ -158,45 +130,6 @@ All colors MUST be HSL.
 .hover-lift:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* Shimmer Ring Button Effect */
-.shimmer-ring-button {
-  position: relative;
-  overflow: hidden;
-}
-
-.shimmer-ring-button::before,
-.shimmer-ring-button::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: inherit;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    hsl(199 89% 60%) 90deg,
-    hsl(280 100% 70%) 180deg,
-    transparent 270deg,
-    transparent 360deg
-  );
-  z-index: -1;
-  animation: shimmer-ring 3s linear infinite;
-}
-
-.shimmer-ring-button::after {
-  background: conic-gradient(
-    from 180deg,
-    transparent 0deg,
-    hsl(280 100% 70%) 90deg,
-    hsl(199 89% 60%) 180deg,
-    transparent 270deg,
-    transparent 360deg
-  );
-  animation: shimmer-ring-delayed 3s linear infinite;
 }
 
 /* Scroll Velocity Animation - Optimized for Text Clarity */
