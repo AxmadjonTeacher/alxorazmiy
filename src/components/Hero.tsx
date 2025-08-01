@@ -76,7 +76,7 @@ export const Hero = () => {
             <Button 
               size="lg" 
               onClick={handleContactClick}
-              className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold group transition-all duration-300 hover:scale-105"
+              className="circling-glow bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold group transition-all duration-300 hover:scale-105 rounded-lg"
             >
               <Phone className="mr-2 w-5 h-5" />
               {t('contactUs')}

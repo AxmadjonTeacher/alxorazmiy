@@ -109,6 +109,16 @@ All colors MUST be HSL.
   100% { background-position: 200% 0; }
 }
 
+@keyframes circling-glow-1 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes circling-glow-2 {
+  0% { transform: rotate(180deg); }
+  100% { transform: rotate(540deg); }
+}
+
 /* Utility classes for components */
 .float-animation {
   animation: float 3s ease-in-out infinite;
@@ -130,6 +140,39 @@ All colors MUST be HSL.
 .hover-lift:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Circling Teal Glow Effect */
+.circling-glow {
+  position: relative;
+  overflow: visible;
+}
+
+.circling-glow::before,
+.circling-glow::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: inherit;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, transparent, #14b8a6, transparent, #0d9488, transparent) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  z-index: -1;
+}
+
+.circling-glow::before {
+  animation: circling-glow-1 3s linear infinite;
+}
+
+.circling-glow::after {
+  animation: circling-glow-2 3s linear infinite;
+  border-width: 1px;
+  background: linear-gradient(45deg, transparent, #5eead4, transparent, #14b8a6, transparent) border-box;
 }
 
 /* Scroll Velocity Animation - Optimized for Text Clarity */
