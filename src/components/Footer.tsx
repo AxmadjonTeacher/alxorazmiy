@@ -144,16 +144,10 @@ export const Footer = () => {
             <p className="text-gray-400 text-sm">
               © 2024 Al-Xorazmiy School. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                Cookie Policy
-              </a>
+            <div className="mt-4 md:mt-0">
+              <p className="text-gray-400 text-sm">
+                designed by love for innovation
+              </p>
             </div>
           </div>
         </div>
