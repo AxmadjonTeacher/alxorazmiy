@@ -145,6 +145,7 @@ All colors MUST be HSL.
 /* Circling Teal Glow Effect */
 .circling-glow {
   position: relative;
+  border: 2px solid rgba(20, 184, 166, 0.3);
   overflow: visible;
 }
 
@@ -152,27 +153,25 @@ All colors MUST be HSL.
 .circling-glow::after {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
   border-radius: inherit;
-  border: 2px solid transparent;
-  background: linear-gradient(45deg, transparent, #14b8a6, transparent, #0d9488, transparent) border-box;
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  mask-composite: xor;
-  -webkit-mask-composite: xor;
+  background: conic-gradient(from 0deg, transparent, #14b8a6, transparent, transparent);
   z-index: -1;
+  pointer-events: none;
 }
 
 .circling-glow::before {
-  animation: circling-glow-1 3s linear infinite;
+  animation: circling-glow-1 2s linear infinite;
+  filter: blur(1px);
 }
 
 .circling-glow::after {
-  animation: circling-glow-2 3s linear infinite;
-  border-width: 1px;
-  background: linear-gradient(45deg, transparent, #5eead4, transparent, #14b8a6, transparent) border-box;
+  animation: circling-glow-2 2s linear infinite reverse;
+  background: conic-gradient(from 180deg, transparent, #0d9488, transparent, transparent);
+  filter: blur(2px);
 }
 
 /* Scroll Velocity Animation - Optimized for Text Clarity */
