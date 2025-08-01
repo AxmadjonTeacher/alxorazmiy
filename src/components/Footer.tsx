@@ -144,7 +144,7 @@ export const Footer = () => {
               © 2024 Al-Xorazmiy School. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0">
-              <p className="text-gray-400 text-sm">Designed by love for innovation</p>
+              <p className="text-gray-400 text-sm">Designed with love for innovation</p>
             </div>
           </div>
         </div>
