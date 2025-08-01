@@ -119,7 +119,7 @@ export const Header = () => {
 
             <Button 
               onClick={handleApplyNow}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
+              className="shimmer-ring-button bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg relative z-10"
             >
               {t('applyNow')}
             </Button>
@@ -179,7 +179,7 @@ export const Header = () => {
                     handleApplyNow();
                     setIsMenuOpen(false);
                   }}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium"
+                  className="shimmer-ring-button w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium relative z-10"
                 >
                   {t('applyNow')}
                 </Button>
