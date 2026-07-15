@@ -1,73 +1,93 @@
-# Welcome to your Lovable project
+# Al-Xorazmiy School Website
 
-## Project info
+A modern, high-performance, and responsive landing page for the **Al-Xorazmiy Specialized School**, featuring multilingual support, rich animations, and clean aesthetics.
 
-**URL**: https://lovable.dev/projects/567a894c-f4d1-43c6-af79-9daaf45f8309
+Developed by **Axmadjon Yodgorov**.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Technologies & Libraries Used
 
-**Use Lovable**
+This project is built using modern web development standards and a premium tech stack:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/567a894c-f4d1-43c6-af79-9daaf45f8309) and start prompting.
+- **Core**: React 18 (TypeScript) & Vite
+- **Styling**: Tailwind CSS
+- **Components & UI**: Radix UI primitives & shadcn/ui components
+- **Navigation**: React Router DOM (v6)
+- **State Management & Data Fetching**: TanStack React Query (v5)
+- **Icons**: Lucide React
+- **Animations**: Custom scroll-driven velocity and animation transitions
+- **Localization**: Custom lightweight Language Context supporting:
+  - 🇺🇿 O'zbekcha (Uzbek)
+  - 🇷🇺 Русский (Russian)
+  - 🇬🇧 English
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🛠️ Project Structure
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+The project has been organized and cleaned to remove any unused assets, components, or layout templates:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+├── public/
+│   ├── lovable-uploads/   # Cleaned optimized assets (logos, images)
+│   └── favicon.ico        # Site favicon
+├── src/
+│   ├── components/
+│   │   ├── ui/            # Cleaned & minimal UI components (button, card, tooltip, dropdown, sonner/toast)
+│   │   ├── About.tsx      # School philosophy & history section
+│   │   ├── ClickSpark.tsx # Premium interactive cursor spark effect
+│   │   ├── Contact.tsx    # Connection links (Telegram, Phone, Map)
+│   │   ├── Footer.tsx     # Site footer with maps & contact details
+│   │   ├── Header.tsx     # Sticky navigation bar with language picker
+│   │   ├── Hero.tsx       # Welcoming header section with dynamic overlay
+│   │   ├── News.tsx       # Dynamic school events and news section
+│   │   ├── Programs.tsx   # Curriculum and specialization programs
+│   │   ├── ScrollVelocity.# Kinetic text running marquee effect
+│   │   └── Stats.tsx      # Achievement statistics
+│   ├── contexts/
+│   │   └── LanguageContext.tsx # Centralized state for internationalization
+│   ├── hooks/             # Utility hooks (use-mobile, use-toast)
+│   ├── pages/             # Page components (Index page, 404 page)
+│   ├── lib/               # Utility helper functions
+│   ├── App.tsx            # Main root router & layout provider
+│   └── main.tsx           # Entry point
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## ⚙️ Development and Installation Guide
 
-**Use GitHub Codespaces**
+### Prerequisites
+- Node.js (version 18 or above recommended)
+- npm (Node Package Manager)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Step 1: Install Dependencies
+```sh
+npm install
+```
 
-## What technologies are used for this project?
+### Step 2: Start Development Server
+```sh
+npm run dev
+```
+Open `http://localhost:5173` in your browser.
 
-This project is built with:
+### Step 3: Production Build
+Compile and bundle the website for production:
+```sh
+npm run build
+```
+The optimized output will be generated inside the `dist` directory.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Step 4: Preview Build
+Preview the production build locally:
+```sh
+npm run preview
+```
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/567a894c-f4d1-43c6-af79-9daaf45f8309) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📄 Related Documentation
+- [CONTRIBUTING.md](file:///Users/ahmetyadgarov/Desktop/alxorazmiy-website/CONTRIBUTING.md) — Contribution guidelines and coding conventions.
+- [CHANGELOG.md](file:///Users/ahmetyadgarov/Desktop/alxorazmiy-website/CHANGELOG.md) — Release notes and updates log.
